@@ -144,6 +144,7 @@ export type Trip = {
   intro: string;
   hero: MediaItem;
   cover: TripCover;
+  coverVariants?: Record<CoverVariant, TripCover>;
   facts: TripFact[];
   route: Place[];
   days: TripDay[];

@@ -6,11 +6,16 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
+    "db:india:dry-run": "tsx scripts/import-india-to-supabase.ts --dry-run",
+    "db:india:import": "tsx scripts/import-india-to-supabase.ts",
+    "db:india:verify": "tsx scripts/verify-india-supabase.ts",
+    "db:india:compare": "tsx scripts/compare-india-data.ts",
     "import:india": "tsx scripts/import-india-media.ts",
     "lint": "eslint",
     "test": "tsx --test tests/india.test.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.111.0",
     "next": "16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -23,7 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "typescript": "^5"
   }
 }

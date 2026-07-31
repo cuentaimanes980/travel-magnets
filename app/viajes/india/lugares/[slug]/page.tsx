@@ -4,20 +4,21 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PlaceLocation } from "@/components/travel/PlaceLocation";
 import { TravelGallery } from "@/components/travel/TravelGallery";
-import { getIndiaPlace, getIndiaPlaceMedia, indiaPlaces } from "@/data/india-places";
-import { indiaTrip } from "@/data/india";
+import { getPlacePage, getPlaceSlugs } from "@/lib/travel-data";
 import type { MediaItem } from "@/types/travel";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
-  return indiaPlaces.map((place) => ({ slug: place.slug }));
+  return getPlaceSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const place = getIndiaPlace(slug);
-  return place ? { title: `${place.name} · India`, description: place.shortSummary } : { title: "Lugar no encontrado" };
+  const page = await getPlacePage(slug);
+  return page ? { title: `${page.place.name} · India`, description: page.place.shortSummary } : { title: "Lugar no encontrado" };
 }
 
 function PlaceCover({ media }: { media?: MediaItem }) {
@@ -38,16 +39,12 @@ function formatPlaceDate(date: string) {
 
 export default async function PlacePage({ params }: Props) {
   const { slug } = await params;
-  const place = getIndiaPlace(slug);
-  if (!place) notFound();
-  const media = getIndiaPlaceMedia(place);
+  const page = await getPlacePage(slug);
+  if (!page) notFound();
+  const { place, media, day, previousPlace, nextPlace } = page;
   const coverId = place.coverMediaIds[0];
   const cover = media.find((item) => item.id === coverId) ?? media[0];
   const secondaryMedia = media.filter((item) => item.id !== cover?.id);
-  const day = indiaTrip.days.find((item) => item.date === place.dayKey);
-  const placeIndex = indiaPlaces.findIndex((item) => item.id === place.id);
-  const previousPlace = placeIndex > 0 ? indiaPlaces[placeIndex - 1] : undefined;
-  const nextPlace = placeIndex >= 0 ? indiaPlaces[placeIndex + 1] : undefined;
 
   return <main className="place-page" id="top">
     <div className="place-topbar"><Link href={day ? `/viajes/india#${day.id}` : "/viajes/india"}>← {day ? `Volver a Día ${day.dayNumber} · ${day.title}` : "Volver al álbum"}</Link></div>

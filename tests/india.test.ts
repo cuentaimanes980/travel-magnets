@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { getIndiaCoverVariant, indiaTrip } from "../data/india";
+import { buildIndiaSeed, indiaSeedSummary } from "../lib/supabase/india-seed";
+import { getLocalPlacePage, getLocalTripBySlug, resolveLocalNfc } from "../lib/travel-data/local";
 
 test("India tiene una historia real de nueve jornadas navegable", () => {
   assert.equal(indiaTrip.slug, "india");
@@ -36,4 +38,30 @@ test("India tiene una historia real de nueve jornadas navegable", () => {
     "Regreso y aeropuerto",
   ]);
   assert.ok(indiaTrip.days.every((day) => day.placesVisited.every((place) => place.slug || place.name.toLowerCase().includes("vuelo") || place.name.includes("Aeropuerto"))));
+});
+
+test("la fuente local conserva el contrato de lectura del piloto", () => {
+  assert.equal(getLocalTripBySlug("india")?.days.length, 9);
+  assert.equal(getLocalPlacePage("taj-mahal")?.place.name, "Taj Mahal");
+  assert.equal(getLocalPlacePage("taj-mahal")?.media.length, 4);
+  assert.deepEqual(resolveLocalNfc("india-2018"), { tripSlug: "india", isActive: true });
+});
+
+test("el seed de India es determinista y no activa NFC", () => {
+  const first = buildIndiaSeed();
+  const second = buildIndiaSeed();
+  assert.deepEqual(first, second);
+  assert.deepEqual(indiaSeedSummary(first), {
+    trips: 1,
+    days: 9,
+    places: 14,
+    dayPlaceRelations: 14,
+    photos: 40,
+    videos: 6,
+    mediaAssignments: 117,
+    heroSets: 4,
+    heroSetMedia: 13,
+    nfcLinks: 1,
+  });
+  assert.equal(first.nfc_links[0].is_active, false);
 });

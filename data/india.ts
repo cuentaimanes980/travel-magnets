@@ -184,6 +184,7 @@ export const indiaTrip: Trip = {
   intro: "Viaje por Delhi, Jaipur y Agra del 2 al 10 de septiembre de 2018. El relato conserva la salida, el recorrido Delhi → Jaipur → Agra y el regreso por Delhi.",
   hero: toMedia(imageRecords.find((record) => record.eligibleForCover) ?? imageRecords[0], { fit: "cover" }),
   cover: indiaCoverVariants.a,
+  coverVariants: indiaCoverVariants,
   facts: [
     { label: "Fechas", value: "2-10 sep 2018" },
     { label: "Jornadas", value: "Día 0 + 8 jornadas" },

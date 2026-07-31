@@ -1,8 +1,8 @@
 # Hoja de ruta
 
-1. Fundacion actual: prototipo local, modelo de contenido, rutas publicas y maqueta de administracion.
-2. Persistencia: esquema PostgreSQL, lectura de viajes publicados y migracion de datos de demostracion.
-3. Administracion: Supabase Auth, editor de bloques, borradores y publicacion.
-4. Medios: R2, cargas directas con URLs firmadas, miniaturas y video optimizado.
-5. NFC: identificadores permanentes que resuelven al album publicado.
-6. Operacion: analitica consciente de la privacidad, observabilidad y copias de seguridad.
+1. **Piloto local:** completado para India con contenido editorial, medios optimizados, portada variable, galerías, visor, lugares y revisión móvil.
+2. **Persistencia inicial:** esquema versionado, RLS, repositorio Supabase opcional, seed determinista y comparación local/remota preparados. La aplicación mantiene local por defecto hasta migrar y verificar el proyecto.
+3. **Administración:** Supabase Auth, roles, edición de bloques, borradores y publicación controlada.
+4. **Medios:** migración futura de derivados y originales a Cloudflare R2, cargas directas con URLs firmadas, miniaturas y vídeo optimizado. No se usará Supabase Storage para este plan.
+5. **NFC:** activar enlaces administrados en Supabase y programar tags físicos cuando el contenido publicado esté verificado. `/n/[code]` ya proporciona la resolución de lectura.
+6. **Operación:** copias de seguridad, observabilidad, analítica consciente de la privacidad y validación automática de medios.
