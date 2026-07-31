@@ -6,14 +6,20 @@ function requiredEnv(name: string) {
   return value;
 }
 
+function noStoreFetch(input: RequestInfo | URL, init?: RequestInit) {
+  return fetch(input, { ...init, cache: "no-store" });
+}
+
 export function createSupabasePublicClient(): SupabaseClient {
   return createClient(requiredEnv("NEXT_PUBLIC_SUPABASE_URL"), requiredEnv("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"), {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    global: { fetch: noStoreFetch },
   });
 }
 
 export function createSupabaseAdminClient(): SupabaseClient {
   return createClient(requiredEnv("NEXT_PUBLIC_SUPABASE_URL"), requiredEnv("SUPABASE_SECRET_KEY"), {
     auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    global: { fetch: noStoreFetch },
   });
 }

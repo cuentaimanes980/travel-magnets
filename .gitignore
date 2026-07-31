@@ -96,3 +96,5 @@ Desktop.ini
 *.tsbuildinfo
 next-env.d.ts
 /travel-magnets-scaffold/
+
+.vercel
