@@ -1,0 +1,3931 @@
+{
+  "sourceRoot": "outside-repository/india-pilot-source",
+  "generatedAt": "2026-07-30T11:11:47.535Z",
+  "totals": {
+    "sourceFiles": 114,
+    "importedFiles": 46,
+    "omittedFiles": 68
+  },
+  "detectedFolders": [
+    {
+      "folder": "Agra y viaje hacia Delhi",
+      "files": 30,
+      "formats": {
+        ".jpg": 30
+      }
+    },
+    {
+      "folder": "Delhi y viaje hacia Jaipur",
+      "files": 48,
+      "formats": {
+        ".jpg": 39,
+        ".mp4": 9
+      }
+    },
+    {
+      "folder": "Jaipur y viaje hacia Agra",
+      "files": 36,
+      "formats": {
+        ".jpg": 34,
+        ".mp4": 2
+      }
+    },
+    {
+      "folder": "otros",
+      "files": 0,
+      "formats": {}
+    },
+    {
+      "folder": "portada",
+      "files": 0,
+      "formats": {}
+    },
+    {
+      "folder": "videos",
+      "files": 0,
+      "formats": {}
+    }
+  ],
+  "files": [
+    {
+      "id": "2018-09-08-img-20180908-083222-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_083222_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:32:22",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-083626-govindeneltajmahal-jpg",
+      "originalFileName": "IMG_20180908_083626_govindeneltajmahal.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-08-img-20180908-083626-govindeneltajmahal-a8dcj4.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-08-img-20180908-083626-govindeneltajmahal-a8dcj4-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:36:26",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "taj-mahal"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo y vista del Taj Mahal."
+      }
+    },
+    {
+      "id": "2018-09-08-img-20180908-083656-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_083656_tajmahal.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-08-img-20180908-083656-tajmahal-1p3chg2.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-08-img-20180908-083656-tajmahal-1p3chg2-thumb.webp",
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:36:56",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "taj-mahal"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo Taj Mahal."
+      }
+    },
+    {
+      "id": "2018-09-08-img-20180908-084128-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_084128_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1585,
+      "height": 1132,
+      "aspectRatio": 1.4002,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:41:28",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-084129-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_084129_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1554,
+      "height": 1077,
+      "aspectRatio": 1.4429,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:41:29",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-084130-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_084130_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1812,
+      "aspectRatio": 0.596,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:41:30",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-084131-fotogrupaltajmajal-jpg",
+      "originalFileName": "IMG_20180908_084131_Fotogrupaltajmajal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1615,
+      "height": 1100,
+      "aspectRatio": 1.4682,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:41:31",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Agra",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Agra; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Agra o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-084131-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_084131_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:41:31",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-084136-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_084136_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:41:36",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-084411-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_084411_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:44:11",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-084655-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_084655_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:46:55",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-085757-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_085757_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "08:57:57",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-091659-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_091659_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "09:16:59",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-092757-jpg",
+      "originalFileName": "IMG_20180908_092757.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "09:27:57",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Agra",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Agra; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Agra o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-092914-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_092914_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "09:29:14",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-093240-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_093240_TajMahal.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-08-img-20180908-093240-tajmahal-1wfswze.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-08-img-20180908-093240-tajmahal-1wfswze-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "09:32:40",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "taj-mahal"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Secuencia visual de la visita al Taj Mahal."
+      }
+    },
+    {
+      "id": "2018-09-08-img-20180908-095151-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_095151_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "09:51:51",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-095352-anipidefotos-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_095352_anipidefotos_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "09:53:52",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-100040-anipidefotos-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_100040_anipidefotos_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "10:00:40",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-100519-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_100519_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "10:05:19",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-101257-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_101257_tajmahal.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-08-img-20180908-101257-tajmahal-hms4sc.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-08-img-20180908-101257-tajmahal-hms4sc-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "10:12:57",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "taj-mahal"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo Taj Mahal."
+      }
+    },
+    {
+      "id": "2018-09-08-img-20180908-101408-lepidenfotoacarlos-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_101408_lepidenfotoacarlos_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-08",
+      "captureTime": "10:14:08",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-110430-1-elfuerterojoagra-jpg",
+      "originalFileName": "IMG_20180908_110430_1_elfuerterojoagra.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-08-img-20180908-110430-1-elfuerterojoagra-1xyyv1w.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-08-img-20180908-110430-1-elfuerterojoagra-1xyyv1w-thumb.webp",
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "11:04:30",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Agra Fort",
+          "confidence": "high",
+          "reason": "El nombre del archivo menciona el fuerte rojo de Agra."
+        }
+      ],
+      "chosenPlace": "Agra Fort",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Agra Fort en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "agra-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo Fuerte Rojo de Agra."
+      }
+    },
+    {
+      "id": "2018-09-08-img-20180908-112423-elfuerterojoagra2-jpg",
+      "originalFileName": "IMG_20180908_112423_elfuerterojoagra2.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-08-img-20180908-112423-elfuerterojoagra2-1lshmic.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-08-img-20180908-112423-elfuerterojoagra2-1lshmic-thumb.webp",
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "11:24:23",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Agra Fort",
+          "confidence": "high",
+          "reason": "El nombre del archivo menciona el fuerte rojo de Agra."
+        }
+      ],
+      "chosenPlace": "Agra Fort",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Agra Fort en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "agra-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo Fuerte Rojo de Agra."
+      }
+    },
+    {
+      "id": "2018-09-08-img-20180908-180226-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_180226_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "18:02:26",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-08-img-20180908-181746-tajmahal-jpg",
+      "originalFileName": "IMG_20180908_181746_TajMahal.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-08",
+      "captureTime": "18:17:46",
+      "dayKey": "2018-09-08",
+      "tripDayNumber": 6,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Taj Mahal",
+          "confidence": "high",
+          "reason": "El nombre del archivo contiene tajmahal."
+        }
+      ],
+      "chosenPlace": "Taj Mahal",
+      "confidence": "high",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Taj Mahal en Agra; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-09-img-20180909-092844-fotopiscinahotelagra-jpg",
+      "originalFileName": "IMG_20180909_092844_fotopiscinahotelagra.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-09-img-20180909-092844-fotopiscinahotelagra-f91qaw.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-09-img-20180909-092844-fotopiscinahotelagra-f91qaw-thumb.webp",
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-09",
+      "captureTime": "09:28:44",
+      "dayKey": "2018-09-09",
+      "tripDayNumber": 7,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Hotel o piscina en Agra (nombre por confirmar)",
+          "confidence": "medium",
+          "reason": "El nombre del archivo identifica un contexto de hotel, no el establecimiento."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": true,
+      "alt": "Fotografia real de Agra o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "agra-private-hotel"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Nombre de archivo piscina del hotel de Agra."
+      }
+    },
+    {
+      "id": "2018-09-09-img-20180909-101300-fotopiscinahotelagra-jpg",
+      "originalFileName": "IMG_20180909_101300_fotopiscinahotelagra.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-09-img-20180909-101300-fotopiscinahotelagra-yc39km.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-09-img-20180909-101300-fotopiscinahotelagra-yc39km-thumb.webp",
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-09",
+      "captureTime": "10:13:00",
+      "dayKey": "2018-09-09",
+      "tripDayNumber": 7,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Hotel o piscina en Agra (nombre por confirmar)",
+          "confidence": "medium",
+          "reason": "El nombre del archivo identifica un contexto de hotel, no el establecimiento."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Agra o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "agra-private-hotel"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Nombre de archivo piscina del hotel de Agra."
+      }
+    },
+    {
+      "id": "2018-09-09-img-20180909-172327-fotocongovind-jpg",
+      "originalFileName": "IMG_20180909_172327_fotocongovind.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-09-img-20180909-172327-fotocongovind-ulslfo.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-09-img-20180909-172327-fotocongovind-ulslfo-thumb.webp",
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-09",
+      "captureTime": "17:23:27",
+      "dayKey": "2018-09-09",
+      "tripDayNumber": 7,
+      "city": "Agra",
+      "phase": "Agra",
+      "placeCandidates": [
+        {
+          "name": "Agra",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Agra; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Agra o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-10-img-20180910-052145-aerpuertodelhi-jpg",
+      "originalFileName": "IMG_20180910_052145_aerpuertodelhi.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-10-img-20180910-052145-aerpuertodelhi-wgqxvj.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-10-img-20180910-052145-aerpuertodelhi-wgqxvj-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-10",
+      "captureTime": "05:21:45",
+      "dayKey": "2018-09-10",
+      "tripDayNumber": 8,
+      "city": "Delhi",
+      "phase": "Agra → Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Agra y viaje hacia Delhi",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-02-img-20180902-203947-vuelo-inicial-jpg",
+      "originalFileName": "IMG_20180902_203947_vuelo inicial.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-02-img-20180902-203947-vuelo-inicial-1dcyekb.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-02-img-20180902-203947-vuelo-inicial-1dcyekb-thumb.webp",
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-02",
+      "captureTime": "20:39:47",
+      "dayKey": "2018-09-02",
+      "tripDayNumber": 0,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": true,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-03-img-20180903-083453-jamamasjid-jpg",
+      "originalFileName": "IMG_20180903_083453_JamaMasjid.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-03-img-20180903-083453-jamamasjid-poi0xn.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-03-img-20180903-083453-jamamasjid-poi0xn-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-03",
+      "captureTime": "08:34:53",
+      "dayKey": "2018-09-03",
+      "tripDayNumber": 1,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "jama-masjid"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Secuencia visual de la mezquita en Old Delhi."
+      }
+    },
+    {
+      "id": "2018-09-03-img-20180903-084248-jamamasjid-jpg",
+      "originalFileName": "IMG_20180903_084248_JamaMasjid.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-03-img-20180903-084248-jamamasjid-1f4ku8o.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-03-img-20180903-084248-jamamasjid-1f4ku8o-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-03",
+      "captureTime": "08:42:48",
+      "dayKey": "2018-09-03",
+      "tripDayNumber": 1,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "jama-masjid"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Secuencia visual de la mezquita en Old Delhi."
+      }
+    },
+    {
+      "id": "2018-09-03-img-20180903-124657-gurdwarabanglasahib-jpg",
+      "originalFileName": "IMG_20180903_124657_GurdwaraBanglaSahib.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-03-img-20180903-124657-gurdwarabanglasahib-ipv9rb.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-03-img-20180903-124657-gurdwarabanglasahib-ipv9rb-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-03",
+      "captureTime": "12:46:57",
+      "dayKey": "2018-09-03",
+      "tripDayNumber": 1,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "gurdwara-bangla-sahib"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo y fachada del templo sij."
+      }
+    },
+    {
+      "id": "2018-09-03-img-20180903-132158-monumentoaghandi-jpg",
+      "originalFileName": "IMG_20180903_132158_monumentoaghandi.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-03-img-20180903-132158-monumentoaghandi-yc9ynt.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-03-img-20180903-132158-monumentoaghandi-yc9ynt-thumb.webp",
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-03",
+      "captureTime": "13:21:58",
+      "dayKey": "2018-09-03",
+      "tripDayNumber": 1,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Monumento asociado a Gandhi (nombre por confirmar)",
+          "confidence": "medium",
+          "reason": "El nombre del archivo contiene una referencia a Gandhi."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": true,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "raj-ghat"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Memorial de mármol negro con ofrendas florales."
+      }
+    },
+    {
+      "id": "2018-09-03-img-20180903-161603-gurdwarabanglasahib-jpg",
+      "originalFileName": "IMG_20180903_161603_GurdwaraBanglaSahib.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-03-img-20180903-161603-gurdwarabanglasahib-1xzs19r.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-03-img-20180903-161603-gurdwarabanglasahib-1xzs19r-thumb.webp",
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-03",
+      "captureTime": "16:16:03",
+      "dayKey": "2018-09-03",
+      "tripDayNumber": 1,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "gurdwara-bangla-sahib"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Fachada blanca con cúpulas doradas del templo sij."
+      }
+    },
+    {
+      "id": "2018-09-04-img-20180904-071633-qutbminar-jpg",
+      "originalFileName": "IMG_20180904_071633_QutbMinar.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "07:16:33",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-074253-qutbminar-jpg",
+      "originalFileName": "IMG_20180904_074253__QutbMinar.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-04-img-20180904-074253-qutbminar-75etoh.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-04-img-20180904-074253-qutbminar-75etoh-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "07:42:53",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "qutb-minar"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Torre y arcos del complejo de Qutb Minar."
+      }
+    },
+    {
+      "id": "2018-09-04-img-20180904-085442-templo-del-loto-jpg",
+      "originalFileName": "IMG_20180904_085442_Templo del Loto.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "08:54:42",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-090821-templo-del-loto-jpg",
+      "originalFileName": "IMG_20180904_090821__Templo del Loto.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-04-img-20180904-090821-templo-del-loto-146caxr.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-04-img-20180904-090821-templo-del-loto-146caxr-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "09:08:21",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "lotus-temple"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Parada editorial del 4 de septiembre; el archivo no incluye nombre de lugar."
+      }
+    },
+    {
+      "id": "2018-09-04-img-20180904-103556-qutbminar-jpg",
+      "originalFileName": "IMG_20180904_103556_QutbMinar.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-04-img-20180904-103556-qutbminar-1o6tvt3.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-04-img-20180904-103556-qutbminar-1o6tvt3-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "10:35:56",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "qutb-minar"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Torre de Qutb Minar visible en el recinto arqueológico."
+      }
+    },
+    {
+      "id": "2018-09-04-img-20180904-105938-qutbminar-jpg",
+      "originalFileName": "IMG_20180904_105938_QutbMinar.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "10:59:38",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-112404-callesdelhi-jpg",
+      "originalFileName": "IMG_20180904_112404_CallesDelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "11:24:04",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-112408-callesdelhi-jpg",
+      "originalFileName": "IMG_20180904_112408_CallesDelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "11:24:08",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-113548-callesdelhi-jpg",
+      "originalFileName": "IMG_20180904_113548_CallesDelhi.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-04-img-20180904-113548-callesdelhi-xeeo6y.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-04-img-20180904-113548-callesdelhi-xeeo6y-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "11:35:48",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-04-img-20180904-113810-callesdelhi-jpg",
+      "originalFileName": "IMG_20180904_113810_CallesDelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "11:38:10",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-122620-templo-del-loto-jpg",
+      "originalFileName": "IMG_20180904_122620_Templo del Loto.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "12:26:20",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-143942-callesdelhi-jpg",
+      "originalFileName": "IMG_20180904_143942_CallesDelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "14:39:42",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-144330-habitacionhotel-jpg",
+      "originalFileName": "IMG_20180904_144330_habitacionhotel.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-04-img-20180904-144330-habitacionhotel-scpjlh.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-04-img-20180904-144330-habitacionhotel-scpjlh-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "14:43:30",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": true,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-04-img-20180904-144346-habitacionhotel2-jpg",
+      "originalFileName": "IMG_20180904_144346_habitacionhotel2.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-04-img-20180904-144346-habitacionhotel2-1m1s1cu.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-04-img-20180904-144346-habitacionhotel2-1m1s1cu-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "14:43:46",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-04-img-20180904-151914-swaminarayan-akshardham-jpg",
+      "originalFileName": "IMG_20180904_151914_Swaminarayan Akshardham.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "15:19:14",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-152007-lapiscinadelhoteldedelhi-jpg",
+      "originalFileName": "IMG_20180904_152007_Lapiscinadelhoteldedelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "15:20:07",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-img-20180904-152043-lapiscinadelhoteldedelhi-jpg",
+      "originalFileName": "IMG_20180904_152043_Lapiscinadelhoteldedelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-04",
+      "captureTime": "15:20:43",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-074203-callesdelhi-jpg",
+      "originalFileName": "IMG_20180905_074203_CallesDelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "07:42:03",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-110232-callesdelhi-jpg",
+      "originalFileName": "IMG_20180905_110232_CallesDelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "11:02:32",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-110751-vacas-de-camino-a-jaipur-jpg",
+      "originalFileName": "IMG_20180905_110751_Vacas de camino a Jaipur.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-05",
+      "captureTime": "11:07:51",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-124934-recorridoen4x4hastaelpalaciodelosmaharaha-jpg",
+      "originalFileName": "IMG_20180905_124934_Recorridoen4x4hastaelpalaciodelosmaharaha.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-05-img-20180905-124934-recorridoen4x4hastaelpalaciodelosmaharaha-1vb0s7.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-05-img-20180905-124934-recorridoen4x4hastaelpalaciodelosmaharaha-1vb0s7-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-05",
+      "captureTime": "12:49:34",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo y vehículo rotulado Shahpura Haveli."
+      }
+    },
+    {
+      "id": "2018-09-05-img-20180905-125225-recorridoen4x4hastaelpalaciodelosmaharaha-jpg",
+      "originalFileName": "IMG_20180905_125225_Recorridoen4x4hastaelpalaciodelosmaharaha.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "12:52:25",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-125922-recorridoen4x4hastaelpalaciodelosmaharaha-jpg",
+      "originalFileName": "IMG_20180905_125922_Recorridoen4x4hastaelpalaciodelosmaharaha.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-05-img-20180905-125922-recorridoen4x4hastaelpalaciodelosmaharaha-1mq5w1h.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-05-img-20180905-125922-recorridoen4x4hastaelpalaciodelosmaharaha-1mq5w1h-thumb.webp",
+      "width": 3456,
+      "height": 4608,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "12:59:22",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Secuencia de llegada a Shahpura Haveli."
+      }
+    },
+    {
+      "id": "2018-09-05-img-20180905-130747-shahpura-haveli-jpg",
+      "originalFileName": "IMG_20180905_130747_Shahpura Haveli.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-05-img-20180905-130747-shahpura-haveli-1fdmwes.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-05-img-20180905-130747-shahpura-haveli-1fdmwes-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "13:07:47",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo del palacio de Shahpura."
+      }
+    },
+    {
+      "id": "2018-09-05-img-20180905-131133-shahpura-haveli-jpg",
+      "originalFileName": "IMG_20180905_131133_Shahpura Haveli.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-05-img-20180905-131133-shahpura-haveli-hibpsa.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-05-img-20180905-131133-shahpura-haveli-hibpsa-thumb.webp",
+      "width": 3456,
+      "height": 4608,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "13:11:33",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": true,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Interior de la secuencia de Shahpura Haveli."
+      }
+    },
+    {
+      "id": "2018-09-05-img-20180905-131307-shahpura-haveli-jpg",
+      "originalFileName": "IMG_20180905_131307_Shahpura Haveli.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "13:13:07",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-131315-shahpura-haveli-jpg",
+      "originalFileName": "IMG_20180905_131315_Shahpura Haveli.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "13:13:15",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-132420-shahpura-haveli-jpg",
+      "originalFileName": "IMG_20180905_132420_Shahpura Haveli.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-05-img-20180905-132420-shahpura-haveli-ucj0ei.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-05-img-20180905-132420-shahpura-haveli-ucj0ei-thumb.webp",
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-05",
+      "captureTime": "13:24:20",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-05-img-20180905-143748-shahpura-haveli-jpg",
+      "originalFileName": "IMG_20180905_143748_Shahpura Haveli.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "14:37:48",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-143905-recorridoen4x4hastaelpalaciodelosmaharaha-jpg",
+      "originalFileName": "IMG_20180905_143905_Recorridoen4x4hastaelpalaciodelosmaharaha.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-05-img-20180905-143905-recorridoen4x4hastaelpalaciodelosmaharaha-rtinr2.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-05-img-20180905-143905-recorridoen4x4hastaelpalaciodelosmaharaha-rtinr2-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "14:39:05",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Retrato junto al vehículo de Shahpura Haveli."
+      }
+    },
+    {
+      "id": "2018-09-05-img-20180905-143937-recorridoen4x4hastaelpalaciodelosmaharaha-jpg",
+      "originalFileName": "IMG_20180905_143937_Recorridoen4x4hastaelpalaciodelosmaharaha.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "14:39:37",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-144555-recorridoen4x4hastaelpalaciodelosmaharaha-jpg",
+      "originalFileName": "IMG_20180905_144555_Recorridoen4x4hastaelpalaciodelosmaharaha.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-05",
+      "captureTime": "14:45:55",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-05-img-20180905-162750-callesdelhi-jpg",
+      "originalFileName": "IMG_20180905_162750_CallesDelhi.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "16:27:50",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-04-vid-20180904-112408-lavidaenlascallesdedehli-mp4",
+      "originalFileName": "VID_20180904_112408_Lavidaenlascallesdedehli.mp4",
+      "src": "/demo/india/real/imported/india-2018-09-04-vid-20180904-112408-lavidaenlascallesdedehli-1d3g7yp.mp4",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "11:24:08",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": true,
+      "durationSeconds": 6.5
+    },
+    {
+      "id": "2018-09-04-vid-20180904-112408-lavidaenlascallesdedehli2-mp4",
+      "originalFileName": "VID_20180904_112408_Lavidaenlascallesdedehli2.mp4",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "11:24:08",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles. Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": false,
+      "omissionReason": "Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "durationSeconds": 5.8
+    },
+    {
+      "id": "2018-09-04-vid-20180904-112408-lavidaenlascallesdedehli3-mp4",
+      "originalFileName": "VID_20180904_112408_Lavidaenlascallesdedehli3.mp4",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "11:24:08",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles. Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": false,
+      "omissionReason": "Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "durationSeconds": 4.3
+    },
+    {
+      "id": "2018-09-04-vid-20180904-151914-lapiscinadelhoteldedelhi2-mp4",
+      "originalFileName": "VID_20180904_151914_Lapiscinadelhoteldedelhi2.mp4",
+      "src": "/demo/india/real/imported/india-2018-09-04-vid-20180904-151914-lapiscinadelhoteldedelhi2-1hs0rqn.mp4",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-04",
+      "captureTime": "15:19:14",
+      "dayKey": "2018-09-04",
+      "tripDayNumber": 2,
+      "city": "Delhi",
+      "phase": "Delhi",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": true,
+      "durationSeconds": 3.4
+    },
+    {
+      "id": "2018-09-05-vid-20180905-074203-eltraficodedelhi2-mp4",
+      "originalFileName": "VID_20180905_074203_Eltraficodedelhi2.mp4",
+      "src": "/demo/india/real/imported/india-2018-09-05-vid-20180905-074203-eltraficodedelhi2-axbb2j.mp4",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "07:42:03",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Tráfico y vida urbana de Delhi",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica el contexto urbano."
+        }
+      ],
+      "chosenPlace": "Tráfico y vida urbana de Delhi",
+      "confidence": "high",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Tráfico y vida urbana de Delhi en Delhi; pendiente de validacion final.",
+      "type": "video",
+      "imported": true,
+      "durationSeconds": 5.1
+    },
+    {
+      "id": "2018-09-05-vid-20180905-074203-eltraficodedelhi3-mp4",
+      "originalFileName": "VID_20180905_074203_Eltraficodedelhi3.mp4",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "07:42:03",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Tráfico y vida urbana de Delhi",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica el contexto urbano."
+        }
+      ],
+      "chosenPlace": "Tráfico y vida urbana de Delhi",
+      "confidence": "high",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles. Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Tráfico y vida urbana de Delhi en Delhi; pendiente de validacion final.",
+      "type": "video",
+      "imported": false,
+      "omissionReason": "Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "durationSeconds": 6.9
+    },
+    {
+      "id": "2018-09-05-vid-20180905-124934-recorridoen4x4hastaelpalaciodelosmaharaha2-mp4",
+      "originalFileName": "VID_20180905_124934_Recorridoen4x4hastaelpalaciodelosmaharaha2.mp4",
+      "src": "/demo/india/real/imported/india-2018-09-05-vid-20180905-124934-recorridoen4x4hastaelpalaciodelosmaharaha2-10fcoo3.mp4",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "12:49:34",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": true,
+      "durationSeconds": 3.2,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo del recorrido en 4x4 hacia el palacio."
+      }
+    },
+    {
+      "id": "2018-09-05-vid-20180905-124934-recorridoen4x4hastaelpalaciodelosmaharaha3-mp4",
+      "originalFileName": "VID_20180905_124934_Recorridoen4x4hastaelpalaciodelosmaharaha3.mp4",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 640,
+      "height": 1072,
+      "aspectRatio": 0.597,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "12:49:34",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles. Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": false,
+      "omissionReason": "Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "durationSeconds": 13.2,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo del recorrido en 4x4 hacia el palacio."
+      }
+    },
+    {
+      "id": "2018-09-05-vid-20180905-124934-recorridoen4x4hastaelpalaciodelosmaharaha4-mp4",
+      "originalFileName": "VID_20180905_124934_Recorridoen4x4hastaelpalaciodelosmaharaha4.mp4",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 640,
+      "height": 1072,
+      "aspectRatio": 0.597,
+      "orientation": "portrait",
+      "captureDate": "2018-09-05",
+      "captureTime": "12:49:34",
+      "dayKey": "2018-09-05",
+      "tripDayNumber": 3,
+      "city": "Delhi",
+      "phase": "Delhi → Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Delhi",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Delhi; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Delhi y viaje hacia Jaipur",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles. Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Delhi o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": false,
+      "omissionReason": "Variante numerada del mismo clip; se conserva una sola version para el piloto.",
+      "durationSeconds": 15.1,
+      "editorialPlaceIds": [
+        "shahpura-haveli"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo del recorrido en 4x4 hacia el palacio."
+      }
+    },
+    {
+      "id": "2018-09-06-img-20180906-080136-recorridoelefantesjaipur-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_080136__recorridoelefantesjaipur_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:01:36",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido con elefantes (lugar exacto por confirmar)",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la carpeta apunta a Jaipur."
+        }
+      ],
+      "chosenPlace": "Recorrido con elefantes (lugar exacto por confirmar)",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido con elefantes (lugar exacto por confirmar) en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-081132-recorridoelefantesjaipur-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_081132_recorridoelefantesjaipur_Amber Fort.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-06-img-20180906-081132-recorridoelefantesjaipur-amber-fort-1l25lko.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-06-img-20180906-081132-recorridoelefantesjaipur-amber-fort-1l25lko-thumb.webp",
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:11:32",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido con elefantes (lugar exacto por confirmar)",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la carpeta apunta a Jaipur."
+        }
+      ],
+      "chosenPlace": "Recorrido con elefantes (lugar exacto por confirmar)",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido con elefantes (lugar exacto por confirmar) en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "amber-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Recorrido en elefante dentro del complejo de Amber."
+      }
+    },
+    {
+      "id": "2018-09-06-img-20180906-081135-recorridoelefantesjaipur-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_081135_recorridoelefantesjaipur_Amber Fort.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-06-img-20180906-081135-recorridoelefantesjaipur-amber-fort-w1xwfv.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-06-img-20180906-081135-recorridoelefantesjaipur-amber-fort-w1xwfv-thumb.webp",
+      "width": 2240,
+      "height": 3968,
+      "aspectRatio": 0.5645,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:11:35",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido con elefantes (lugar exacto por confirmar)",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la carpeta apunta a Jaipur."
+        }
+      ],
+      "chosenPlace": "Recorrido con elefantes (lugar exacto por confirmar)",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido con elefantes (lugar exacto por confirmar) en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "amber-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Recorrido en elefante dentro del complejo de Amber."
+      }
+    },
+    {
+      "id": "2018-09-06-img-20180906-082740-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_082740_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:27:40",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-083002-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_083002_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:30:02",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-083109-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_083109_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:31:09",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-085637-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_085637_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:56:37",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-085725-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_085725_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:57:25",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-085939-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_085939_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "08:59:39",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-090005-vistas-desde-el-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_090005_Vistas desde el Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-06",
+      "captureTime": "09:00:05",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-090358-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_090358_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "09:03:58",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-095000-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_095000_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-06",
+      "captureTime": "09:50:00",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-095057-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_095057_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "09:50:57",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-122251-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_122251_Amber Fort.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "12:22:51",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-123856-recorridoentuktukporjaipur-jpg",
+      "originalFileName": "IMG_20180906_123856_Recorridoentuktukporjaipur.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-06-img-20180906-123856-recorridoentuktukporjaipur-1b8294i.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-06-img-20180906-123856-recorridoentuktukporjaipur-1b8294i-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "12:38:56",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido en tuk-tuk por Jaipur",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la ciudad."
+        }
+      ],
+      "chosenPlace": "Recorrido en tuk-tuk por Jaipur",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": true,
+      "alt": "Secuencia compatible con Recorrido en tuk-tuk por Jaipur en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "amber-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Recorrido en tuk-tuk de Jaipur, asociado al día de Amber."
+      }
+    },
+    {
+      "id": "2018-09-06-img-20180906-124002-recorridoentuktukporjaipur-jpg",
+      "originalFileName": "IMG_20180906_124002_Recorridoentuktukporjaipur.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "12:40:02",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido en tuk-tuk por Jaipur",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la ciudad."
+        }
+      ],
+      "chosenPlace": "Recorrido en tuk-tuk por Jaipur",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido en tuk-tuk por Jaipur en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-141316-visitafabricaalfombras-jpg",
+      "originalFileName": "IMG_20180906_141316_visitafabricaalfombras.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "14:13:16",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-141611-visitafabricaalfombras-jpg",
+      "originalFileName": "IMG_20180906_141611_visitafabricaalfombras.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "14:16:11",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-141905-visitafabricaalfombras-jpg",
+      "originalFileName": "IMG_20180906_141905_visitafabricaalfombras.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "14:19:05",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-06-img-20180906-181156-recorridoelefantesjaipur-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_181156_recorridoelefantesjaipur_Amber Fort.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-06-img-20180906-181156-recorridoelefantesjaipur-amber-fort-1jltftl.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-06-img-20180906-181156-recorridoelefantesjaipur-amber-fort-1jltftl-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "18:11:56",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido con elefantes (lugar exacto por confirmar)",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la carpeta apunta a Jaipur."
+        }
+      ],
+      "chosenPlace": "Recorrido con elefantes (lugar exacto por confirmar)",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido con elefantes (lugar exacto por confirmar) en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "amber-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Recorrido en elefante de Jaipur."
+      }
+    },
+    {
+      "id": "2018-09-06-img-20180906-181311-recorridoelefantesjaipur-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_181311__recorridoelefantesjaipur_Amber Fort.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-06-img-20180906-181311-recorridoelefantesjaipur-amber-fort-7r3llh.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-06-img-20180906-181311-recorridoelefantesjaipur-amber-fort-7r3llh-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "18:13:11",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido con elefantes (lugar exacto por confirmar)",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la carpeta apunta a Jaipur."
+        }
+      ],
+      "chosenPlace": "Recorrido con elefantes (lugar exacto por confirmar)",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido con elefantes (lugar exacto por confirmar) en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "amber-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Recorrido en elefante de Jaipur."
+      }
+    },
+    {
+      "id": "2018-09-06-img-20180906-181315-recorridoelefantesjaipur-amber-fort-jpg",
+      "originalFileName": "IMG_20180906_181315__recorridoelefantesjaipur_Amber Fort.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-06-img-20180906-181315-recorridoelefantesjaipur-amber-fort-fykvpt.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-06-img-20180906-181315-recorridoelefantesjaipur-amber-fort-fykvpt-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "18:13:15",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido con elefantes (lugar exacto por confirmar)",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la carpeta apunta a Jaipur."
+        }
+      ],
+      "chosenPlace": "Recorrido con elefantes (lugar exacto por confirmar)",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido con elefantes (lugar exacto por confirmar) en Jaipur; pendiente de validacion final.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "amber-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Recorrido en elefante de Jaipur."
+      }
+    },
+    {
+      "id": "2018-09-07-img-20180907-091456-callesjaipur-jpg",
+      "originalFileName": "IMG_20180907_091456_CallesJaipur.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-07",
+      "captureTime": "09:14:56",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-07-img-20180907-093721-callesjaipur-jpg",
+      "originalFileName": "IMG_20180907_093721_CallesJaipur.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-07-img-20180907-093721-callesjaipur-vf1wat.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-07-img-20180907-093721-callesjaipur-vf1wat-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-07",
+      "captureTime": "09:37:21",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "unknown-img-20180907-11281-chand-baori-jpg",
+      "originalFileName": "IMG_20180907_11281_Chand Baori.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1812,
+      "aspectRatio": 0.596,
+      "orientation": "portrait",
+      "dayKey": "unknown",
+      "tripDayNumber": 0,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha no encontrada en el nombre; revisar manualmente. No se detecto fecha EXIF utilizable. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-07-img-20180907-112810-chand-baori-jpg",
+      "originalFileName": "IMG_20180907_112810__Chand Baori.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-07-img-20180907-112810-chand-baori-faw3jz.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-07-img-20180907-112810-chand-baori-faw3jz-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "11:28:10",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "chand-baori"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Pozo escalonado visible en la imagen."
+      }
+    },
+    {
+      "id": "2018-09-07-img-20180907-113116-chand-baori-jpg",
+      "originalFileName": "IMG_20180907_113116_Chand Baori.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-07-img-20180907-113116-chand-baori-5vokqg.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-07-img-20180907-113116-chand-baori-5vokqg-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "11:31:16",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "chand-baori"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo y secuencia visual del pozo escalonado."
+      }
+    },
+    {
+      "id": "2018-09-07-img-20180907-133550-jpg",
+      "originalFileName": "IMG_20180907_133550.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-07-img-20180907-133550-upsnay.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-07-img-20180907-133550-upsnay-thumb.webp",
+      "width": 3024,
+      "height": 4032,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "captureDate": "2018-09-07",
+      "captureTime": "13:35:50",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-07-img-20180907-141703-laxmi-vilas-palace-jpg",
+      "originalFileName": "IMG_20180907_141703_Laxmi Vilas Palace.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "14:17:03",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-07-img-20180907-141717-laxmi-vilas-palace-jpg",
+      "originalFileName": "IMG_20180907_141717_Laxmi Vilas Palace.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "14:17:17",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-07-img-20180907-141840-laxmi-vilas-palace-jpg",
+      "originalFileName": "IMG_20180907_141840_Laxmi Vilas Palace.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-07-img-20180907-141840-laxmi-vilas-palace-jfyzuq.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-07-img-20180907-141840-laxmi-vilas-palace-jfyzuq-thumb.webp",
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "14:18:40",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true
+    },
+    {
+      "id": "2018-09-07-img-20180907-141953-laxmi-vilas-palace-jpg",
+      "originalFileName": "IMG_20180907_141953_Laxmi Vilas Palace.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 3968,
+      "height": 2240,
+      "aspectRatio": 1.7714,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "14:19:53",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-07-img-20180907-162919-laxmi-vilas-palace-jpg",
+      "originalFileName": "IMG_20180907_162919_Laxmi Vilas Palace.jpg",
+      "src": "",
+      "thumbnailSrc": null,
+      "width": 4032,
+      "height": 3024,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "16:29:19",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP. No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": false,
+      "omissionReason": "No seleccionada para el piloto inicial para limitar densidad; queda disponible en el origen para futura curacion."
+    },
+    {
+      "id": "2018-09-07-img-20180907-165500-laxmi-vilas-palace-jpg",
+      "originalFileName": "IMG_20180907_165500_Laxmi Vilas Palace.jpg",
+      "src": "/demo/india/real/imported/india-2018-09-07-img-20180907-165500-laxmi-vilas-palace-1wfynab.webp",
+      "thumbnailSrc": "/demo/india/real/imported/india-2018-09-07-img-20180907-165500-laxmi-vilas-palace-1wfynab-thumb.webp",
+      "width": 4608,
+      "height": 3456,
+      "aspectRatio": 1.3333,
+      "orientation": "landscape",
+      "captureDate": "2018-09-07",
+      "captureTime": "16:55:00",
+      "dayKey": "2018-09-07",
+      "tripDayNumber": 5,
+      "city": "Jaipur",
+      "phase": "Jaipur → Agra",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. EXIF contiene una fecha de captura compatible. Imagen optimizada a WebP y miniatura WebP.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "image",
+      "fit": "contain",
+      "imported": true,
+      "editorialPlaceIds": [
+        "laxmi-vilas-palace"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo del palacio de Laxmi Vilas."
+      }
+    },
+    {
+      "id": "2018-09-06-vid-20180906-090358-palacioenelagua-mp4",
+      "originalFileName": "VID_20180906_090358_Palacioenelagua.mp4",
+      "src": "/demo/india/real/imported/india-2018-09-06-vid-20180906-090358-palacioenelagua-o04oen.mp4",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "09:03:58",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Jaipur",
+          "confidence": "medium",
+          "reason": "La carpeta de origen apunta a Jaipur; el lugar exacto queda por confirmar."
+        }
+      ],
+      "confidence": "medium",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles.",
+      "eligibleForCover": false,
+      "alt": "Fotografia real de Jaipur o del trayecto; lugar exacto por confirmar.",
+      "type": "video",
+      "imported": true,
+      "durationSeconds": 8.3,
+      "editorialPlaceIds": [
+        "jal-mahal"
+      ],
+      "editorialAssignment": {
+        "confidence": "high",
+        "reason": "Nombre de archivo Palacio del Agua."
+      }
+    },
+    {
+      "id": "2018-09-06-vid-20180906-123856-recorridoentuktukporjaipur2-mp4",
+      "originalFileName": "VID_20180906_123856_Recorridoentuktukporjaipur2.mp4",
+      "src": "/demo/india/real/imported/india-2018-09-06-vid-20180906-123856-recorridoentuktukporjaipur2-j5tew4.mp4",
+      "thumbnailSrc": null,
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": 0.5625,
+      "orientation": "portrait",
+      "captureDate": "2018-09-06",
+      "captureTime": "12:38:56",
+      "dayKey": "2018-09-06",
+      "tripDayNumber": 4,
+      "city": "Jaipur",
+      "phase": "Jaipur",
+      "placeCandidates": [
+        {
+          "name": "Recorrido en tuk-tuk por Jaipur",
+          "confidence": "high",
+          "reason": "El nombre del archivo identifica la actividad y la ciudad."
+        }
+      ],
+      "chosenPlace": "Recorrido en tuk-tuk por Jaipur",
+      "confidence": "high",
+      "folderSource": "Jaipur y viaje hacia Agra",
+      "notes": "Fecha priorizada desde el nombre del archivo. No se detecto fecha EXIF utilizable. Video copiado sin transcodificacion; sus dimensiones se leen del contenedor MP4 cuando estan disponibles.",
+      "eligibleForCover": false,
+      "alt": "Secuencia compatible con Recorrido en tuk-tuk por Jaipur en Jaipur; pendiente de validacion final.",
+      "type": "video",
+      "imported": true,
+      "durationSeconds": 13.4,
+      "editorialPlaceIds": [
+        "amber-fort"
+      ],
+      "editorialAssignment": {
+        "confidence": "medium",
+        "reason": "Vídeo del recorrido en tuk-tuk de Jaipur."
+      }
+    }
+  ]
+}

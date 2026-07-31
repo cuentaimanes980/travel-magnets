@@ -1,0 +1,4 @@
+import Image from "next/image";
+import type { MediaItem } from "@/types/travel";
+function layoutFor(items: MediaItem[]) { if (items.length >= 3 && items[0]?.orientation === "landscape") return "dominant-horizontal"; if (items.length === 2 && items.every((item) => item.orientation === "portrait")) return "vertical-pair"; return "mixed"; }
+export function ImageGridBlock({ items }: { items: MediaItem[] }) { return <div className={`image-grid image-grid--${layoutFor(items)}`}>{items.map((item) => <figure className={`grid-image grid-image--${item.orientation ?? "auto"}`} style={item.aspectRatio ? { aspectRatio: String(item.aspectRatio) } : undefined} key={item.id}><Image src={item.src} alt={item.alt} fill loading="lazy" unoptimized={item.src.startsWith("/demo/india/real/")} sizes="(min-width: 720px) 33vw, 50vw" style={{ objectFit: item.fit ?? "contain", objectPosition: item.focus ? `${item.focus.x}% ${item.focus.y}%` : "50% 50%" }} /></figure>)}</div>; }

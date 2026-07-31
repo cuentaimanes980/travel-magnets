@@ -1,0 +1,2 @@
+import type { MediaItem } from "@/types/travel";
+export function ShortVideoBlock({ media }: { media: MediaItem }) { return <section className="video-block" aria-label="Vídeo del día"><video controls playsInline muted preload="metadata" poster={media.poster}><source src={media.src} type="video/mp4" />Tu navegador no puede reproducir este vídeo.</video>{media.caption && <p className="video-caption">{media.caption}</p>}</section>; }

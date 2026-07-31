@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <main className="admin"><header className="admin-header"><span className="wordmark">Travel Magnets</span></header><section className="admin-main"><span className="section-label">404</span><h1>Este viaje no esta en la coleccion.</h1><p>Puede que la ruta todavia no exista o que el album se haya movido.</p><Link className="admin-back" href="/">Volver a la portada</Link></section></main>; }

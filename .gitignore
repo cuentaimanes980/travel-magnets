@@ -1,0 +1,96 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/node_modules.*
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+/test-results/
+/playwright-report/
+/.playwright-cli/
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+/artifacts/
+/tmp/
+/temp/
+*.tmp
+*.bak
+*.orig
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+/logs/
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# local review output; only the selected files below are kept for documentation
+/docs/india-omitted-media-review.html
+/docs/omitted-media/
+/docs/screenshots/mobile-review/*
+!/docs/screenshots/mobile-review/
+!/docs/screenshots/mobile-review/india-final-cover-a-360.png
+!/docs/screenshots/mobile-review/india-final-cover-a-390.png
+!/docs/screenshots/mobile-review/india-final-cover-b-390.png
+!/docs/screenshots/mobile-review/india-final-cover-c-390.png
+!/docs/screenshots/mobile-review/india-final-cover-d-390.png
+!/docs/screenshots/mobile-review/india-final-summary-index-390.png
+!/docs/screenshots/mobile-review/india-final-summary-360.png
+!/docs/screenshots/mobile-review/india-final-day-04-390.png
+!/docs/screenshots/mobile-review/india-final-day-04-360.png
+!/docs/screenshots/mobile-review/india-final-day-01-gallery-open-390.png
+!/docs/screenshots/mobile-review/india-final-vertical-viewer-390.png
+!/docs/screenshots/mobile-review/india-final-video-viewer-390.png
+!/docs/screenshots/mobile-review/india-final-album-filters-390.png
+!/docs/screenshots/mobile-review/india-final-closing-390.png
+!/docs/screenshots/mobile-review/india-final-place-taj-mahal-390.png
+!/docs/screenshots/mobile-review/india-final-place-location-390.png
+
+# source photographs and editing files stay outside the repository
+/originals/
+/raw/
+/media-originals/
+/source-media/
+*.psd
+*.kra
+*.xcf
+*.cr2
+*.nef
+*.arw
+*.dng
+
+# operating-system files and local tool output
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.codex/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+/travel-magnets-scaffold/

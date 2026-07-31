@@ -1,0 +1,3 @@
+import Image from "next/image";
+import type { MediaItem } from "@/types/travel";
+export function FullImageBlock({ media, priority = false }: { media: MediaItem; priority?: boolean }) { return <figure className={`media-full media-full--${media.orientation ?? "auto"}`} style={media.aspectRatio ? { aspectRatio: String(media.aspectRatio) } : undefined}><Image src={media.src} alt={media.alt} fill priority={priority} loading={priority ? "eager" : "lazy"} unoptimized={media.src.startsWith("/demo/india/real/")} sizes="(min-width: 900px) 70rem, 100vw" style={{ objectFit: media.fit ?? "contain", objectPosition: media.focus ? `${media.focus.x}% ${media.focus.y}%` : "50% 50%" }} /></figure>; }
