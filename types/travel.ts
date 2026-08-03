@@ -42,6 +42,7 @@ export type TripPlace = {
   coverMediaIds: string[];
   dayKey: string;
   category: PlaceCategory;
+  wikipediaUrl?: string;
 };
 
 export type TripFact = { label: string; value: string };
@@ -106,6 +107,15 @@ export type TripCover = {
 
 export type TripChapter = { title: string; subtitle?: string; blocks: ContentBlock[] };
 
+export type TripSection = {
+  id: string;
+  title: string;
+  description: string;
+  displayOrder: number;
+  initiallyClosed: boolean;
+  blocks: Array<Extract<ContentBlock, { type: "gallery" }>>;
+};
+
 export type ContentBlock =
   | { type: "chapterTitle"; title: string; subtitle?: string }
   | { type: "fullImage"; media: MediaItem }
@@ -148,6 +158,7 @@ export type Trip = {
   facts: TripFact[];
   route: Place[];
   days: TripDay[];
+  sections?: TripSection[];
   gallery: MediaItem[];
   closing: Extract<ContentBlock, { type: "closing" }>;
 };

@@ -1,0 +1,15 @@
+import { requireAdmin } from "@/lib/admin/auth";
+import { getAdminTrip } from "@/lib/admin/data";
+import { createSection, deleteSection, saveSection } from "@/lib/admin/actions";
+import { ConfirmSubmit } from "@/components/admin/ConfirmSubmit";
+
+export default async function AdminSectionsPage({ params }: { params: Promise<{ tripId: string }> }) {
+  const { client } = await requireAdmin();
+  const { tripId } = await params;
+  const trip = await getAdminTrip(client, tripId);
+  if (!trip) return null;
+  return <section className="admin-section"><div className="admin-page-heading"><div><span className="section-label">{trip.title}</span><h1>Secciones</h1><p>Contenido sin fecha exacta, ordenado como galeria y cerrado inicialmente.</p></div></div>
+    <form action={createSection} className="admin-editor-card admin-create-card"><input type="hidden" name="tripSlug" value={trip.slug} /><div className="editor-card-heading"><strong>Nueva seccion adicional</strong></div><div className="admin-form-grid"><label>Titulo<input name="title" required /></label><label className="field-wide">Descripcion<textarea name="description" rows={3} /></label><label className="field-wide">Medios seleccionados<select name="mediaId" multiple size={Math.min(8, Math.max(4, trip.media.length))}>{trip.media.filter((media) => media.reviewStatus === "selected").map((media) => <option key={media.id} value={media.id}>{media.originalFileName}</option>)}</select></label></div><button className="admin-primary-link" type="submit">Crear seccion</button></form>
+    <div className="admin-editor-stack">{trip.sections.map((section) => <article className="admin-editor-card" key={section.id}><div className="editor-card-heading"><strong>Seccion {section.displayOrder + 1}</strong><span>Galeria cerrada inicialmente</span></div><form action={saveSection}><input type="hidden" name="tripSlug" value={trip.slug} /><input type="hidden" name="sectionId" value={section.id} /><div className="admin-form-grid"><label>Titulo<input name="title" defaultValue={section.title} required /></label><label>Orden<input type="number" min="0" name="displayOrder" defaultValue={section.displayOrder} required /></label><label className="field-wide">Descripcion<textarea name="description" defaultValue={section.description} rows={3} /></label><label className="field-wide">Medios seleccionados<select name="mediaId" multiple size={Math.min(8, Math.max(4, trip.media.length))} defaultValue={section.mediaIds}>{trip.media.filter((media) => media.reviewStatus === "selected").map((media) => <option key={media.id} value={media.id}>{media.originalFileName}</option>)}</select></label></div><button className="admin-primary-link" type="submit">Guardar seccion</button></form><form action={deleteSection}><input type="hidden" name="tripSlug" value={trip.slug} /><input type="hidden" name="sectionId" value={section.id} /><ConfirmSubmit className="admin-danger-link" message="Eliminar esta seccion y sus asignaciones?">Eliminar seccion</ConfirmSubmit></form></article>)}</div>
+  </section>;
+}

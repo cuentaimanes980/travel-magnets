@@ -35,6 +35,7 @@ export function PlacePageDocument({ page }: { page: PlacePageData }) {
       {place.alternateName && <p className="place-alternate">{place.alternateName}</p>}
       <div className="place-meta"><span>{place.zone}</span><time dateTime={place.date}>{formatPlaceDate(place.date)}</time></div>
       <p className="place-summary">{place.shortSummary}</p><p className="place-description">{place.description}</p>
+      {place.wikipediaUrl && <p><a className="place-wikipedia-link" href={place.wikipediaUrl} target="_blank" rel="noopener noreferrer">Ver en Wikipedia</a></p>}
       <PlaceLocation place={place} />
       <section className="place-day-ref"><span className="section-label">Jornada</span><strong>{day ? `Dia ${day.dayNumber} · ${day.title}` : trip.title}</strong><Link href={day ? `${base}#${day.id}` : base}>Ver el dia completo →</Link></section>
       {secondaryMedia.length > 0 && <TravelGallery items={secondaryMedia} title="Medios asociados" summary={mediaSummary(secondaryMedia)} label="Ver fotos y videos asociados" />}

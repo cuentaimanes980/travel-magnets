@@ -1,7 +1,7 @@
 import { createSupabasePublicClient } from "@/lib/supabase/client";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { resolveMediaUrl } from "@/lib/media/resolve";
-import type { CoverVariant, MediaItem, Place, Trip, TripCover, TripDay, TripPlace } from "@/types/travel";
+import type { ContentBlock, CoverVariant, MediaItem, Place, Trip, TripCover, TripDay, TripPlace, TripSection } from "@/types/travel";
 import type { NfcResolution, PlacePageData } from "@/lib/travel-data/types";
 
 type JsonObject = Record<string, unknown>;
@@ -82,6 +82,7 @@ function toTripPlace(row: Row, placeAssignments: Row[], mediaById: Map<string, M
     coverMediaIds: coverMediaIds.filter((id) => mediaById.has(id)),
     dayKey: text(row.visit_date),
     category: text(row.category) as TripPlace["category"],
+    wikipediaUrl: text(row.wikipedia_url) || undefined,
   };
 }
 
@@ -137,7 +138,7 @@ function coverFromHeroSet(heroSet: Row | undefined, heroSetMedia: Row[], mediaBy
 
 export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Promise<Trip> {
   const tripId = text(tripRow.id);
-  const [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult] = await Promise.all([
+  const [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult, sectionsResult, sectionMediaResult] = await Promise.all([
     client.from("trip_days").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("places").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("trip_day_places").select("*").order("display_order"),
@@ -145,8 +146,10 @@ export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Pr
     client.from("media_assignments").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("hero_sets").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("hero_set_media").select("*").order("display_order"),
+    client.from("trip_sections").select("*").eq("trip_id", tripId).order("display_order"),
+    client.from("trip_section_media").select("*").order("display_order"),
   ]);
-  [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult].forEach((result) => queryError(result.error));
+  [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult, sectionsResult, sectionMediaResult].forEach((result) => queryError(result.error));
 
   const daysRows = (daysResult.data ?? []) as Row[];
   const placesRows = (placesResult.data ?? []) as Row[];
@@ -155,6 +158,8 @@ export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Pr
   const assignments = (assignmentsResult.data ?? []) as Row[];
   const heroSets = (heroSetsResult.data ?? []) as Row[];
   const heroSetMedia = (heroSetMediaResult.data ?? []) as Row[];
+  const sections = (sectionsResult.data ?? []) as Row[];
+  const sectionMedia = (sectionMediaResult.data ?? []) as Row[];
   const visibleMediaRows = mediaRows.filter((row) => text(row.review_status, "selected") === "selected");
   const mediaById = new Map(visibleMediaRows.map((row) => [text(row.id), toMedia(row)]));
   const mediaDisplayOrder = new Map(visibleMediaRows.map((row) => [text(row.id), number(object(row.metadata).display_order) ?? Number.MAX_SAFE_INTEGER]));
@@ -199,6 +204,20 @@ export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Pr
   const closingMediaLocalId = text(closingTheme.localMediaId);
   const closingMedia = visibleMediaRows.find((row) => text(object(row.metadata).local_id) === closingMediaLocalId);
   const closingMediaItem = closingMedia ? mediaById.get(text(closingMedia.id)) : [...mediaById.values()][mediaById.size - 1];
+  const tripSections: TripSection[] = sorted(sections).map((section) => {
+    const items = sorted(sectionMedia.filter((item) => text(item.section_id) === text(section.id)))
+      .map((item) => mediaById.get(text(item.media_id)))
+      .filter((media): media is MediaItem => Boolean(media));
+    const blocks: Array<Extract<ContentBlock, { type: "gallery" }>> = section.is_gallery === false ? [] : [{ type: "gallery", title: text(section.title), items }];
+    return {
+      id: text(section.id),
+      title: text(section.title),
+      description: text(section.description),
+      displayOrder: Number(section.display_order ?? 0),
+      initiallyClosed: section.initially_closed !== false,
+      blocks,
+    };
+  }).filter((section) => section.blocks.length > 0);
   const trip: Trip = {
     slug: text(tripRow.slug),
     title: text(tripRow.title),
@@ -210,6 +229,7 @@ export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Pr
     facts: themeFacts(theme),
     route: themeRoute(theme),
     days,
+    sections: tripSections,
     gallery: [...mediaById.values()].sort((left, right) => (mediaDisplayOrder.get(left.id) ?? Number.MAX_SAFE_INTEGER) - (mediaDisplayOrder.get(right.id) ?? Number.MAX_SAFE_INTEGER)),
     closing: {
       type: "closing",

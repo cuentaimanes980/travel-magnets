@@ -11,14 +11,15 @@ export type AdminMedia = {
   exclusionReason: string; focusX: number; focusY: number; sourcePathHash: string; assignments: AdminAssignment[];
 };
 export type AdminDay = { id: string; dayNumber: number; date: string; title: string; location: string; phase: string; summary: string; displayOrder: number };
-export type AdminPlace = { id: string; slug: string; name: string; alternateName: string; city: string; zone: string; visitDate: string; summary: string; description: string; category: string; latitude: number | null; longitude: number | null; displayOrder: number; dayIds: string[] };
+export type AdminPlace = { id: string; slug: string; name: string; alternateName: string; city: string; zone: string; visitDate: string; summary: string; description: string; wikipediaUrl: string; category: string; latitude: number | null; longitude: number | null; displayOrder: number; dayIds: string[] };
 export type AdminHeroSet = { id: string; name: string; layout: string; isActive: boolean; mediaIds: string[] };
+export type AdminSection = { id: string; title: string; description: string; displayOrder: number; initiallyClosed: boolean; mediaIds: string[] };
 export type AdminNfcLink = { id: string; code: string; isActive: boolean };
 export type AdminRoutePoint = { name: string; region: string };
 export type AdminTrip = {
   id: string; slug: string; title: string; status: string; startDate: string; endDate: string; summary: string; intro: string;
   heroMode: string; theme: Row; route: AdminRoutePoint[]; closingTitle: string; closingBody: string;
-  days: AdminDay[]; places: AdminPlace[]; media: AdminMedia[]; heroSets: AdminHeroSet[]; nfcLinks: AdminNfcLink[];
+  days: AdminDay[]; sections: AdminSection[]; places: AdminPlace[]; media: AdminMedia[]; heroSets: AdminHeroSet[]; nfcLinks: AdminNfcLink[];
 };
 export type AdminTripSummary = Pick<AdminTrip, "id" | "slug" | "title" | "status" | "startDate" | "endDate" | "summary">;
 
@@ -36,7 +37,7 @@ export async function getAdminTrips(client: SupabaseClient): Promise<AdminTripSu
 
 async function loadAdminTrip(client: SupabaseClient, trip: Row): Promise<AdminTrip> {
   const tripId = text(trip.id);
-  const [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult, nfcResult] = await Promise.all([
+  const [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult, nfcResult, sectionsResult, sectionMediaResult] = await Promise.all([
     client.from("trip_days").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("places").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("trip_day_places").select("*").order("display_order"),
@@ -45,13 +46,15 @@ async function loadAdminTrip(client: SupabaseClient, trip: Row): Promise<AdminTr
     client.from("hero_sets").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("hero_set_media").select("*").order("display_order"),
     client.from("nfc_links").select("id, code, is_active").eq("trip_id", tripId).order("created_at"),
+    client.from("trip_sections").select("*").eq("trip_id", tripId).order("display_order"),
+    client.from("trip_section_media").select("*").order("display_order"),
   ]);
-  [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult, nfcResult].forEach((result) => { if (result.error) throw new Error(result.error.message); });
+  [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult, nfcResult, sectionsResult, sectionMediaResult].forEach((result) => { if (result.error) throw new Error(result.error.message); });
 
   const days = ((daysResult.data ?? []) as Row[]).map((day) => ({ id: text(day.id), dayNumber: number(day.day_number), date: text(day.date), title: text(day.title), location: text(day.location), phase: text(day.phase), summary: text(day.summary), displayOrder: number(day.display_order) }));
   const joins = (joinsResult.data ?? []) as Row[];
   const places = ((placesResult.data ?? []) as Row[]).map((place) => ({
-    id: text(place.id), slug: text(place.slug), name: text(place.name), alternateName: text(place.alternate_name), city: text(place.city), zone: text(place.zone), visitDate: text(place.visit_date), summary: text(place.summary), description: text(place.description), category: text(place.category), latitude: nullableNumber(place.latitude), longitude: nullableNumber(place.longitude), displayOrder: number(place.display_order), dayIds: joins.filter((join) => text(join.place_id) === text(place.id)).sort((a, b) => number(a.display_order) - number(b.display_order)).map((join) => text(join.trip_day_id)),
+    id: text(place.id), slug: text(place.slug), name: text(place.name), alternateName: text(place.alternate_name), city: text(place.city), zone: text(place.zone), visitDate: text(place.visit_date), summary: text(place.summary), description: text(place.description), wikipediaUrl: text(place.wikipedia_url), category: text(place.category), latitude: nullableNumber(place.latitude), longitude: nullableNumber(place.longitude), displayOrder: number(place.display_order), dayIds: joins.filter((join) => text(join.place_id) === text(place.id)).sort((a, b) => number(a.display_order) - number(b.display_order)).map((join) => text(join.trip_day_id)),
   }));
   const dayById = new Map(days.map((day) => [day.id, day]));
   const placeById = new Map(places.map((place) => [place.id, place]));
@@ -73,10 +76,15 @@ async function loadAdminTrip(client: SupabaseClient, trip: Row): Promise<AdminTr
   });
   const heroMedia = ((heroSetMediaResult.data ?? []) as Row[]).filter((item) => heroSetsResult.data?.some((set) => text((set as Row).id) === text(item.hero_set_id)));
   const heroSets = ((heroSetsResult.data ?? []) as Row[]).map((set) => ({ id: text(set.id), name: text(set.name), layout: text(set.layout), isActive: Boolean(set.is_active), mediaIds: heroMedia.filter((item) => text(item.hero_set_id) === text(set.id)).sort((a, b) => number(a.slot) - number(b.slot)).map((item) => text(item.media_id)) }));
+  const sectionMedia = (sectionMediaResult.data ?? []) as Row[];
+  const sections = ((sectionsResult.data ?? []) as Row[]).map((section) => ({
+    id: text(section.id), title: text(section.title), description: text(section.description), displayOrder: number(section.display_order), initiallyClosed: section.initially_closed !== false,
+    mediaIds: sectionMedia.filter((item) => text(item.section_id) === text(section.id)).sort((a, b) => number(a.display_order) - number(b.display_order)).map((item) => text(item.media_id)),
+  }));
   const theme = object(trip.theme);
   const route = (Array.isArray(theme.route) ? theme.route : []).map((entry) => { const item = object(entry); return { name: text(item.name), region: text(item.region) }; }).filter((item) => item.name);
   const closing = object(theme.closing);
-  return { id: tripId, slug: text(trip.slug), title: text(trip.title), status: text(trip.status), startDate: text(trip.start_date), endDate: text(trip.end_date), summary: text(trip.summary), intro: text(theme.intro, text(trip.summary)), heroMode: text(trip.hero_mode, "collage"), theme, route, closingTitle: text(closing.title, text(trip.title)), closingBody: text(closing.body, text(trip.end_date)), days, places, media, heroSets, nfcLinks: ((nfcResult.data ?? []) as Row[]).map((row) => ({ id: text(row.id), code: text(row.code), isActive: Boolean(row.is_active) })) };
+  return { id: tripId, slug: text(trip.slug), title: text(trip.title), status: text(trip.status), startDate: text(trip.start_date), endDate: text(trip.end_date), summary: text(trip.summary), intro: text(theme.intro, text(trip.summary)), heroMode: text(trip.hero_mode, "collage"), theme, route, closingTitle: text(closing.title, text(trip.title)), closingBody: text(closing.body, text(trip.end_date)), days, sections, places, media, heroSets, nfcLinks: ((nfcResult.data ?? []) as Row[]).map((row) => ({ id: text(row.id), code: text(row.code), isActive: Boolean(row.is_active) })) };
 }
 
 export async function getAdminTrip(client: SupabaseClient, slug: string) {

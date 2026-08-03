@@ -5,6 +5,7 @@ import { TravelCover } from "@/components/travel/TravelCover";
 import { TravelGallery } from "@/components/travel/TravelGallery";
 import { TravelIntro } from "@/components/travel/TravelIntro";
 import { TripRouteSummary } from "@/components/travel/TripRouteSummary";
+import { TripSectionDocument } from "@/components/travel/TripSectionDocument";
 import { TripIndexNav } from "@/components/travel/TripIndexNav";
 import { getConfiguredDataSource, getCoverVariant } from "@/lib/travel-data";
 import type { Trip } from "@/types/travel";
@@ -21,8 +22,9 @@ export function TripPageDocument({ trip, portada, preview = false }: { trip: Tri
       <div className="album-bar"><Link href={preview ? `/admin/viajes/${trip.slug}` : "/"}>Travel Magnets</Link><div className="album-actions"><a href="#resumen">Resumen</a><TripIndexNav days={trip.days} /></div></div>
       <TravelIntro intro={trip.intro} facts={trip.facts} />
       <TripRouteSummary places={trip.route} />
-      {trip.days.map((day, index) => <DaySection day={day} nextDay={trip.days[index + 1]} key={day.id} />)}
+      {trip.days.map((day, index) => <DaySection day={day} nextDay={trip.days[index + 1]} tripSlug={trip.slug} key={day.id} />)}
       <div id="album-completo"><TravelGallery items={trip.gallery} title="Album completo" summary={`${trip.gallery.filter((item) => item.type === "image").length} fotos · ${trip.gallery.filter((item) => item.type === "video").length} videos`} label="Ver el album completo" filterOptions={filterOptions} /></div>
+      {(trip.sections ?? []).map((section) => <TripSectionDocument section={section} key={section.id} />)}
       <TravelClosing closing={trip.closing} />
     </article>
   </main>;

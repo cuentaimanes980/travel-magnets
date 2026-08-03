@@ -11,7 +11,7 @@ export function AdminShell({ children, tripSlug }: { children: React.ReactNode; 
     <div className="admin-layout">
       <aside className="admin-sidebar" aria-label="Navegacion del panel">
         <Link href="/admin/viajes">Viajes</Link>
-        {tripSlug && <><Link href={base}>Resumen</Link><Link href={`${base}/medios`}>Medios</Link><Link href={`${base}/dias`}>Dias</Link><Link href={`${base}/lugares`}>Lugares</Link><Link href={`${base}/portadas`}>Portadas</Link><Link href={`${base}/nfc`}>NFC / QR</Link></>}
+        {tripSlug && <><Link href={base}>Resumen</Link><Link href={`${base}/medios`}>Medios</Link><Link href={`${base}/dias`}>Dias</Link><Link href={`${base}/secciones`}>Secciones</Link><Link href={`${base}/lugares`}>Lugares</Link><Link href={`${base}/portadas`}>Portadas</Link><Link href={`${base}/nfc`}>NFC / QR</Link></>}
       </aside>
       <main className="admin-content">{children}</main>
     </div>

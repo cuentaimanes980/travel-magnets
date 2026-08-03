@@ -16,6 +16,12 @@
     "media:india:dry-run": "tsx scripts/media-india.ts dry-run",
     "media:india:upload": "tsx scripts/media-india.ts upload",
     "media:india:verify": "tsx scripts/media-india.ts verify",
+    "cruise:dry-run": "tsx scripts/import-cruise.ts dry-run",
+    "cruise:import": "tsx scripts/import-cruise.ts import",
+    "cruise:verify": "tsx scripts/import-cruise.ts verify",
+    "city-trips:dry-run": "tsx scripts/import-city-trips.ts dry-run",
+    "city-trips:import": "tsx scripts/import-city-trips.ts import",
+    "city-trips:verify": "tsx scripts/import-city-trips.ts verify",
     "lint": "eslint",
     "test": "tsx --test tests/india.test.ts"
   },
@@ -26,6 +32,7 @@
     "@supabase/supabase-js": "^2.111.0",
     "next": "16.2.12",
     "qrcode": "^1.5.4",
+    "sharp": "^0.34.5",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
