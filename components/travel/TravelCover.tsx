@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { MediaItem, TripCover } from "@/types/travel";
+import { dedupeMedia } from "@/lib/travel-data/media-selection";
 
 function CoverImage({ media, priority = false, className = "" }: { media: MediaItem; priority?: boolean; className?: string }) {
   return <Image className={className} src={media.src} alt={media.alt} fill priority={priority} unoptimized sizes="100vw" style={{ objectFit: "cover", objectPosition: media.focus ? `${media.focus.x}% ${media.focus.y}%` : "50% 50%" }} />;
@@ -14,7 +15,7 @@ function CoverFallback({ media, title }: { media: MediaItem; title: string }) {
 
 function VariantCover({ cover }: { cover: TripCover }) {
   const variant = cover.variant ?? "a";
-  const media = cover.media.length > 0 ? cover.media : [cover.fallback];
+  const media = dedupeMedia(cover.media).length > 0 ? dedupeMedia(cover.media) : [cover.fallback];
 
   if (variant === "d" && cover.video) {
     return <div className="cover-variant cover-variant--d">
@@ -30,7 +31,8 @@ function VariantCover({ cover }: { cover: TripCover }) {
 }
 
 function CollageCover({ cover }: { cover: TripCover }) {
-  const media = cover.media.length > 0 ? cover.media.slice(0, 5) : [cover.fallback];
+  const uniqueMedia = dedupeMedia(cover.media);
+  const media = uniqueMedia.length > 0 ? uniqueMedia.slice(0, 5) : [cover.fallback];
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -43,7 +45,8 @@ function CollageCover({ cover }: { cover: TripCover }) {
 }
 
 function SlideshowCover({ cover }: { cover: TripCover }) {
-  const media = cover.media.length > 0 ? cover.media : [cover.fallback];
+  const uniqueMedia = dedupeMedia(cover.media);
+  const media = uniqueMedia.length > 0 ? uniqueMedia : [cover.fallback];
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -60,24 +63,21 @@ function VideoCover({ cover, title }: { cover: TripCover; title: string }) {
   return <div className="cover-video"><video autoPlay muted loop playsInline poster={cover.video.poster ?? cover.fallback.src} aria-label="Vídeo de portada"><source src={cover.video.src} type="video/mp4" /></video></div>;
 }
 
-export function TravelCover({ title, dates, cover, variantOptions = [], randomize = false }: { title: string; dates: string; cover: TripCover; variantOptions?: TripCover[]; randomize?: boolean }) {
-  const [randomCover, setRandomCover] = useState<TripCover>();
-
-  useEffect(() => {
-    if (!randomize || variantOptions.length < 2) return;
-    const frame = window.requestAnimationFrame(() => {
-      const nextIndex = Math.floor(Math.random() * variantOptions.length);
-      setRandomCover(variantOptions[nextIndex]);
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [randomize, variantOptions]);
-
-  const selectedCover = randomize ? randomCover ?? cover : cover;
+export function TravelCover({ title, dates, cover }: { title: string; dates: string; cover: TripCover }) {
+  const selectedCover = cover;
 
   return <section className="travel-cover" data-cover-variant={selectedCover.variant ?? "legacy"} aria-label={`Portada del álbum ${title}`}>
     <div className="cover-media">{selectedCover.variant && <VariantCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "collage" && <CollageCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "slideshow" && <SlideshowCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "video" && <VideoCover cover={selectedCover} title={title} />}</div>
     <div className="cover-shade" />
     <div className="cover-copy"><h1>{title}</h1><p>{dates}</p></div>
-    <a className="cover-scroll" href="#resumen">Continuar <span aria-hidden="true">↓</span></a>
+    <a className="cover-scroll cover-start" href="#resumen" onClick={(event) => {
+      const target = document.getElementById("resumen");
+      if (!target) return;
+      event.preventDefault();
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+      window.history.replaceState(null, "", "#resumen");
+    }}>Empezar el viaje <span aria-hidden="true">↓</span></a>
   </section>;
 }

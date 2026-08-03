@@ -4,6 +4,7 @@ import { PlaceLocation } from "@/components/travel/PlaceLocation";
 import { TravelGallery } from "@/components/travel/TravelGallery";
 import type { MediaItem } from "@/types/travel";
 import type { PlacePageData } from "@/lib/travel-data/types";
+import { dedupeMedia } from "@/lib/travel-data/media-selection";
 
 function PlaceCover({ media }: { media?: MediaItem }) {
   if (!media) return <div className="place-cover place-cover--empty"><span>Sin fotografia asociada</span></div>;
@@ -23,9 +24,10 @@ function formatPlaceDate(date: string) {
 
 export function PlacePageDocument({ page }: { page: PlacePageData }) {
   const { place, media, day, previousPlace, nextPlace, trip } = page;
+  const uniqueMedia = dedupeMedia(media);
   const coverId = place.coverMediaIds[0];
-  const cover = media.find((item) => item.id === coverId) ?? media[0];
-  const secondaryMedia = media.filter((item) => item.id !== cover?.id);
+  const cover = uniqueMedia.find((item) => item.id === coverId) ?? uniqueMedia[0];
+  const secondaryMedia = uniqueMedia.filter((item) => item.id !== cover?.id);
   const base = `/viajes/${trip.slug}`;
   return <main className="place-page" id="top">
     <div className="place-topbar"><Link href={day ? `${base}#${day.id}` : base}>← {day ? `Volver a Dia ${day.dayNumber} · ${day.title}` : "Volver al album"}</Link></div>

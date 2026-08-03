@@ -1,6 +1,7 @@
 import { createSupabasePublicClient } from "@/lib/supabase/client";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { resolveMediaUrl } from "@/lib/media/resolve";
+import { dedupeMedia, selectVisualMedia } from "@/lib/travel-data/media-selection";
 import type { ContentBlock, CoverVariant, MediaItem, Place, Trip, TripCover, TripDay, TripPlace, TripSection } from "@/types/travel";
 import type { NfcResolution, PlacePageData } from "@/lib/travel-data/types";
 
@@ -38,6 +39,8 @@ function toMedia(row: Row): MediaItem {
   const orientation = row.orientation === "landscape" || row.orientation === "portrait" || row.orientation === "square" ? row.orientation : undefined;
   return {
     id: text(row.id),
+    storageKey: text(row.storage_key) || undefined,
+    sourceHash: text(row.source_path_hash) || undefined,
     src: publicPath(row.storage_key, "full") ?? "",
     thumbnailSrc: publicPath(row.thumbnail_key, "thumbnail") ?? null,
     alt: text(row.alt),
@@ -60,8 +63,8 @@ function toMedia(row: Row): MediaItem {
 
 function toTripPlace(row: Row, placeAssignments: Row[], mediaById: Map<string, MediaItem>): TripPlace {
   const assignments = sorted(placeAssignments.filter((assignment) => assignment.place_id === row.id));
-  const mediaIds = assignments.filter((assignment) => assignment.role === "place").map((assignment) => text(assignment.media_id));
-  const coverMediaIds = assignments.filter((assignment) => assignment.role === "place_cover").map((assignment) => text(assignment.media_id));
+  const mediaIds = [...new Set(assignments.filter((assignment) => assignment.role === "place").map((assignment) => text(assignment.media_id)))].filter((id) => mediaById.has(id));
+  const coverMediaIds = [...new Set(assignments.filter((assignment) => assignment.role === "place_cover").map((assignment) => text(assignment.media_id)))].filter((id) => mediaById.has(id));
   const latitude = number(row.latitude);
   const longitude = number(row.longitude);
   return {
@@ -78,8 +81,8 @@ function toTripPlace(row: Row, placeAssignments: Row[], mediaById: Map<string, M
     locationSource: latitude !== undefined && longitude !== undefined ? `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=17/${latitude}/${longitude}` : undefined,
     mapQuery: [text(row.name), text(row.city)].filter(Boolean).join(", "),
     verification: "high",
-    mediaIds: mediaIds.filter((id) => mediaById.has(id)),
-    coverMediaIds: coverMediaIds.filter((id) => mediaById.has(id)),
+    mediaIds,
+    coverMediaIds,
     dayKey: text(row.visit_date),
     category: text(row.category) as TripPlace["category"],
     wikipediaUrl: text(row.wikipedia_url) || undefined,
@@ -118,11 +121,11 @@ function themeFacts(theme: JsonObject) {
 
 function coverFromHeroSet(heroSet: Row | undefined, heroSetMedia: Row[], mediaById: Map<string, MediaItem>): TripCover | undefined {
   if (!heroSet) return undefined;
-  const items = sorted(heroSetMedia.filter((item) => item.hero_set_id === heroSet.id)).map((item) => {
+  const items = dedupeMedia(sorted(heroSetMedia.filter((item) => item.hero_set_id === heroSet.id)).map((item) => {
     const media = mediaById.get(text(item.media_id));
     const focus = object(item.focus);
     return media && typeof focus.x === "number" && typeof focus.y === "number" ? { ...media, focus: { x: focus.x, y: focus.y }, fit: "cover" as const } : media;
-  }).filter((item): item is MediaItem => Boolean(item));
+  }).filter((item): item is MediaItem => Boolean(item)));
   const images = items.filter((item) => item.type === "image");
   const video = items.find((item) => item.type === "video");
   const variant = text(heroSet.name).toLowerCase();
@@ -169,12 +172,12 @@ export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Pr
     const dayId = text(dayRow.id);
     const dayAssignments = sorted(assignments.filter((assignment) => assignment.trip_day_id === dayId));
     const dayMedia = (role: string) => dayAssignments.filter((assignment) => assignment.role === role).map((assignment) => mediaById.get(text(assignment.media_id))).filter((media): media is MediaItem => Boolean(media));
-    const gallery = dayMedia("day_gallery");
+    const gallery = dedupeMedia(dayMedia("day_gallery"));
     const heroImage = dayMedia("day_hero")[0] ?? gallery[0] ?? [...mediaById.values()][0];
-    const mosaic = dayMedia("day_mosaic");
-    const video = dayMedia("day_video")[0];
+    const mosaic = selectVisualMedia(dayMedia("day_mosaic"), { excludeIds: heroImage ? [heroImage.id] : [], limit: 4, preferVariety: true });
+    const video = dayMedia("day_video").find((item) => item.id !== heroImage?.id && !mosaic.some((candidate) => candidate.id === item.id));
     const dayPlaces = sorted(joins.filter((join) => join.trip_day_id === dayId)).map((join) => placesById.get(text(join.place_id))).filter((place): place is TripPlace => Boolean(place));
-    const placesVisited = dayPlaces.length > 0 ? dayPlaces.map((place) => placeView(place, mediaById)) : [{ name: text(dayRow.location) === "Salida" ? "Vuelo de salida" : "Aeropuerto de Delhi", region: text(dayRow.location) }];
+    const placesVisited = dayPlaces.length > 0 ? dayPlaces.map((place) => placeView(place, mediaById)) : [{ name: text(dayRow.location) === "Salida" ? "Vuelo de salida" : text(dayRow.location), region: text(dayRow.location) }];
     return {
       id: dayId,
       dayNumber: Number(dayRow.day_number),
@@ -214,6 +217,7 @@ export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Pr
       title: text(section.title),
       description: text(section.description),
       displayOrder: Number(section.display_order ?? 0),
+      afterDayNumber: typeof section.after_day_number === "number" ? section.after_day_number : undefined,
       initiallyClosed: section.initially_closed !== false,
       blocks,
     };
@@ -230,7 +234,7 @@ export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Pr
     route: themeRoute(theme),
     days,
     sections: tripSections,
-    gallery: [...mediaById.values()].sort((left, right) => (mediaDisplayOrder.get(left.id) ?? Number.MAX_SAFE_INTEGER) - (mediaDisplayOrder.get(right.id) ?? Number.MAX_SAFE_INTEGER)),
+    gallery: dedupeMedia([...mediaById.values()].sort((left, right) => (mediaDisplayOrder.get(left.id) ?? Number.MAX_SAFE_INTEGER) - (mediaDisplayOrder.get(right.id) ?? Number.MAX_SAFE_INTEGER))),
     closing: {
       type: "closing",
       title: text(closingTheme.title, text(tripRow.title)),
@@ -283,9 +287,13 @@ export async function getSupabasePlacePage(slug: string, tripSlug = "india"): Pr
   const fullPlaces = tripPlaces.map((row) => toTripPlace(row, assignments, mediaById));
   const placeIndex = fullPlaces.findIndex((candidate) => candidate.id === fullPlace.id);
   const day = trip.days.find((candidate) => candidate.date === fullPlace.dayKey);
+  const placeMedia = dedupeMedia([
+    ...fullPlace.coverMediaIds.map((id) => mediaById.get(id)),
+    ...fullPlace.mediaIds.map((id) => mediaById.get(id)),
+  ].filter((media): media is MediaItem => Boolean(media)));
   return {
     place: fullPlace,
-    media: fullPlace.mediaIds.map((id) => mediaById.get(id)).filter((media): media is MediaItem => Boolean(media)),
+    media: placeMedia,
     day,
     previousPlace: placeIndex > 0 ? fullPlaces[placeIndex - 1] : undefined,
     nextPlace: placeIndex >= 0 ? fullPlaces[placeIndex + 1] : undefined,

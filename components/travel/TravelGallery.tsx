@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
+import { dedupeMedia } from "@/lib/travel-data/media-selection";
 import type { MediaItem } from "@/types/travel";
 
 type FilterKey = string;
@@ -63,7 +64,8 @@ export function TravelGallery({ items, title = "Galería ampliada", summary, lab
   const scrollYRef = useRef(0);
   const contentId = useId();
   const filters = filterOptions ?? [];
-  const visibleItems = filters.length > 0 ? items.filter((item) => matchesFilter(item, filter)) : items;
+  const uniqueItems = dedupeMedia(items);
+  const visibleItems = filters.length > 0 ? uniqueItems.filter((item) => matchesFilter(item, filter)) : uniqueItems;
 
   const close = () => {
     setOpen(false);

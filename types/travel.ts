@@ -51,6 +51,8 @@ export type FramePosition = { x: number; y: number };
 
 export type MediaItem = {
   id: string;
+  storageKey?: string;
+  sourceHash?: string;
   src: string;
   alt: string;
   type: MediaType;
@@ -112,6 +114,7 @@ export type TripSection = {
   title: string;
   description: string;
   displayOrder: number;
+  afterDayNumber?: number;
   initiallyClosed: boolean;
   blocks: Array<Extract<ContentBlock, { type: "gallery" }>>;
 };

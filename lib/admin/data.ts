@@ -13,7 +13,7 @@ export type AdminMedia = {
 export type AdminDay = { id: string; dayNumber: number; date: string; title: string; location: string; phase: string; summary: string; displayOrder: number };
 export type AdminPlace = { id: string; slug: string; name: string; alternateName: string; city: string; zone: string; visitDate: string; summary: string; description: string; wikipediaUrl: string; category: string; latitude: number | null; longitude: number | null; displayOrder: number; dayIds: string[] };
 export type AdminHeroSet = { id: string; name: string; layout: string; isActive: boolean; mediaIds: string[] };
-export type AdminSection = { id: string; title: string; description: string; displayOrder: number; initiallyClosed: boolean; mediaIds: string[] };
+export type AdminSection = { id: string; title: string; description: string; displayOrder: number; afterDayNumber: number | null; initiallyClosed: boolean; mediaIds: string[] };
 export type AdminNfcLink = { id: string; code: string; isActive: boolean };
 export type AdminRoutePoint = { name: string; region: string };
 export type AdminTrip = {
@@ -78,7 +78,7 @@ async function loadAdminTrip(client: SupabaseClient, trip: Row): Promise<AdminTr
   const heroSets = ((heroSetsResult.data ?? []) as Row[]).map((set) => ({ id: text(set.id), name: text(set.name), layout: text(set.layout), isActive: Boolean(set.is_active), mediaIds: heroMedia.filter((item) => text(item.hero_set_id) === text(set.id)).sort((a, b) => number(a.slot) - number(b.slot)).map((item) => text(item.media_id)) }));
   const sectionMedia = (sectionMediaResult.data ?? []) as Row[];
   const sections = ((sectionsResult.data ?? []) as Row[]).map((section) => ({
-    id: text(section.id), title: text(section.title), description: text(section.description), displayOrder: number(section.display_order), initiallyClosed: section.initially_closed !== false,
+    id: text(section.id), title: text(section.title), description: text(section.description), displayOrder: number(section.display_order), afterDayNumber: typeof section.after_day_number === "number" ? section.after_day_number : null, initiallyClosed: section.initially_closed !== false,
     mediaIds: sectionMedia.filter((item) => text(item.section_id) === text(section.id)).sort((a, b) => number(a.display_order) - number(b.display_order)).map((item) => text(item.media_id)),
   }));
   const theme = object(trip.theme);
