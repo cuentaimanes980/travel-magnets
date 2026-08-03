@@ -19,7 +19,7 @@ function MediaTile({ item, index, onOpen }: { item: MediaItem; index: number; on
   if (item.type === "video") {
     return <figure className={`gallery-item gallery-item--video gallery-item--${item.orientation ?? "auto"}`}>
       <button className="gallery-media-trigger gallery-media-trigger--video" type="button" onClick={() => onOpen(index)} aria-label={label}>
-        {item.poster ? <Image src={item.poster} alt="" fill loading="lazy" unoptimized={item.poster.startsWith("/demo/india/real/")} sizes="(min-width: 900px) 30vw, 100vw" style={{ objectFit: "cover" }} /> : <span className="gallery-video-placeholder" aria-hidden="true">▶</span>}
+        {item.poster ? <Image src={item.poster} alt="" fill loading="lazy" unoptimized sizes="(min-width: 900px) 30vw, 100vw" style={{ objectFit: "cover" }} /> : <span className="gallery-video-placeholder" aria-hidden="true">▶</span>}
         <span className="gallery-play" aria-hidden="true">▶</span>
       </button>
       <figcaption>{item.alt}</figcaption>
@@ -28,7 +28,7 @@ function MediaTile({ item, index, onOpen }: { item: MediaItem; index: number; on
 
   return <figure className={`gallery-item gallery-item--${item.orientation ?? "auto"}`} style={item.aspectRatio ? { aspectRatio: String(item.aspectRatio) } : undefined}>
     <button className="gallery-media-trigger" type="button" onClick={() => onOpen(index)} aria-label={label}>
-      <Image src={item.src} alt={item.alt} fill loading="lazy" unoptimized={item.src.startsWith("/demo/india/real/")} sizes="(min-width: 900px) 30vw, (min-width: 640px) 33vw, 50vw" style={{ objectFit: item.fit ?? "contain", objectPosition: item.focus ? `${item.focus.x}% ${item.focus.y}%` : "50% 50%" }} />
+      <Image src={item.src} alt={item.alt} fill loading="lazy" unoptimized sizes="(min-width: 900px) 30vw, (min-width: 640px) 33vw, 50vw" style={{ objectFit: item.fit ?? "contain", objectPosition: item.focus ? `${item.focus.x}% ${item.focus.y}%` : "50% 50%" }} />
       <span className="gallery-open-mark" aria-hidden="true">↗</span>
     </button>
   </figure>;
@@ -48,7 +48,7 @@ function Lightbox({ items, index, onClose, onChange }: { items: MediaItem[]; ind
     <button className="lightbox-close" type="button" onClick={onClose} aria-label="Cerrar visor">×</button>
     <button className="lightbox-control lightbox-control--prev" type="button" onClick={previous} aria-label="Medio anterior">←</button>
     <div className="lightbox-stage">
-      {item.type === "video" ? <video controls playsInline muted preload="metadata" poster={item.poster} aria-label={item.alt}><source src={item.src} type="video/mp4" />Tu navegador no puede reproducir este vídeo.</video> : <Image src={item.src} alt={item.alt} fill priority unoptimized={item.src.startsWith("/demo/india/real/")} sizes="100vw" style={{ objectFit: "contain", objectPosition: item.focus ? `${item.focus.x}% ${item.focus.y}%` : "50% 50%" }} />}
+      {item.type === "video" ? <video controls playsInline muted preload="metadata" poster={item.poster} aria-label={item.alt}><source src={item.src} type="video/mp4" />Tu navegador no puede reproducir este vídeo.</video> : <Image src={item.src} alt={item.alt} fill priority unoptimized sizes="100vw" style={{ objectFit: "contain", objectPosition: item.focus ? `${item.focus.x}% ${item.focus.y}%` : "50% 50%" }} />}
     </div>
     <button className="lightbox-control lightbox-control--next" type="button" onClick={next} aria-label="Medio siguiente">→</button>
     <div className="lightbox-caption"><span>{item.alt}</span><small>{index + 1} / {items.length}</small></div>

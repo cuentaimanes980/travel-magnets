@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import type { MediaItem, TripCover } from "@/types/travel";
 
 function CoverImage({ media, priority = false, className = "" }: { media: MediaItem; priority?: boolean; className?: string }) {
-  return <Image className={className} src={media.src} alt={media.alt} fill priority={priority} unoptimized={media.src.startsWith("/demo/india/real/")} sizes="100vw" style={{ objectFit: "cover", objectPosition: media.focus ? `${media.focus.x}% ${media.focus.y}%` : "50% 50%" }} />;
+  return <Image className={className} src={media.src} alt={media.alt} fill priority={priority} unoptimized sizes="100vw" style={{ objectFit: "cover", objectPosition: media.focus ? `${media.focus.x}% ${media.focus.y}%` : "50% 50%" }} />;
 }
 
 function CoverFallback({ media }: { media: MediaItem }) {

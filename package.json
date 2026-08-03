@@ -11,10 +11,14 @@
     "db:india:verify": "tsx scripts/verify-india-supabase.ts",
     "db:india:compare": "tsx scripts/compare-india-data.ts",
     "import:india": "tsx scripts/import-india-media.ts",
+    "media:india:dry-run": "tsx scripts/media-india.ts dry-run",
+    "media:india:upload": "tsx scripts/media-india.ts upload",
+    "media:india:verify": "tsx scripts/media-india.ts verify",
     "lint": "eslint",
     "test": "tsx --test tests/india.test.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1100.0",
     "@supabase/supabase-js": "^2.111.0",
     "next": "16.2.12",
     "react": "19.2.4",

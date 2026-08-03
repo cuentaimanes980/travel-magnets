@@ -1,4 +1,5 @@
 import { createSupabasePublicClient } from "@/lib/supabase/client";
+import { resolveMediaUrl } from "@/lib/media/resolve";
 import type { CoverVariant, MediaItem, Place, Trip, TripCover, TripDay, TripPlace } from "@/types/travel";
 import type { NfcResolution, PlacePageData } from "@/lib/travel-data/types";
 
@@ -17,9 +18,8 @@ function number(value: unknown) {
   return typeof value === "number" ? value : undefined;
 }
 
-function publicPath(value: unknown) {
-  if (typeof value !== "string" || value.length === 0) return undefined;
-  return value.startsWith("/") ? value : `/${value}`;
+function publicPath(value: unknown, role: "full" | "thumbnail" | "poster" = "full") {
+  return resolveMediaUrl(value, role);
 }
 
 function sorted(rows: Row[]) {
@@ -37,8 +37,8 @@ function toMedia(row: Row): MediaItem {
   const orientation = row.orientation === "landscape" || row.orientation === "portrait" || row.orientation === "square" ? row.orientation : undefined;
   return {
     id: text(row.id),
-    src: publicPath(row.storage_key) ?? "",
-    thumbnailSrc: publicPath(row.thumbnail_key) ?? null,
+    src: publicPath(row.storage_key, "full") ?? "",
+    thumbnailSrc: publicPath(row.thumbnail_key, "thumbnail") ?? null,
     alt: text(row.alt),
     type,
     width: number(row.width) ?? null,
@@ -49,7 +49,7 @@ function toMedia(row: Row): MediaItem {
     captureTime: text(row.capture_time) || null,
     fit: metadata.fit === "cover" ? "cover" : "contain",
     focus: typeof focus.x === "number" && typeof focus.y === "number" ? { x: focus.x, y: focus.y } : undefined,
-    poster: publicPath(row.poster_key),
+    poster: publicPath(row.poster_key, "poster"),
     caption: text(metadata.caption) || undefined,
     city: text(metadata.city) || undefined,
     dayKey: text(metadata.day_key) || undefined,

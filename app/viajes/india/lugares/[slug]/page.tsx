@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function PlaceCover({ media }: { media?: MediaItem }) {
   if (!media) return <div className="place-cover place-cover--empty"><span>Sin fotografía asociada</span></div>;
   if (media.type === "video") return <div className="place-cover"><video controls playsInline muted preload="metadata" poster={media.poster} aria-label={media.alt}><source src={media.src} type="video/mp4" /></video></div>;
-  return <div className="place-cover"><Image src={media.src} alt={media.alt} fill priority unoptimized={media.src.startsWith("/demo/india/real/")} sizes="(min-width: 900px) 60rem, 100vw" style={{ objectFit: "cover", objectPosition: media.focus ? `${media.focus.x}% ${media.focus.y}%` : "50% 50%" }} /></div>;
+  return <div className="place-cover"><Image src={media.src} alt={media.alt} fill priority unoptimized sizes="(min-width: 900px) 60rem, 100vw" style={{ objectFit: "cover", objectPosition: media.focus ? `${media.focus.x}% ${media.focus.y}%` : "50% 50%" }} /></div>;
 }
 
 function mediaSummary(items: MediaItem[]) {
