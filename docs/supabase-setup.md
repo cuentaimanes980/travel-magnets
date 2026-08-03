@@ -38,6 +38,38 @@ npm run db:india:compare
 
 El importador usa IDs deterministas, hace upsert y no borra filas. La importación de India ya fue verificada y es repetible. Si una ejecución se interrumpe, vuelve a ejecutarla y revisa el verificador. El código NFC permanece inactivo.
 
+## Panel de administracion
+
+La migracion `20260803_000002_admin_editor.sql` añade Auth editorial, el estado `pending|selected|rejected` para medios y politicas RLS de escritura. Aplicala con `npx supabase db push` despues de revisar el SQL.
+
+Para autorizar al primer administrador:
+
+1. En Supabase abre Authentication > Users y crea el usuario con el correo del administrador, usando contraseña o el flujo de correo.
+2. Copia su UUID desde la lista de usuarios.
+3. En el SQL Editor ejecuta, sustituyendo solo esos datos manualmente:
+
+```sql
+insert into public.admin_users (id, email)
+values ('UUID_DEL_USUARIO_AUTH', 'correo@ejemplo.com')
+on conflict (id) do update set email = excluded.email, is_active = true;
+```
+
+4. Configura en Authentication > URL Configuration la URL `NEXT_PUBLIC_APP_URL/auth/callback` y añade tambien la URL de desarrollo local si procede.
+5. Abre `/admin/login`. El panel comprueba la sesion y la pertenencia a `admin_users` antes de mostrar datos o permitir escrituras.
+
+El navegador solo usa la clave publishable. Las escrituras pasan por Server Actions con la sesion en cookies y RLS; `SUPABASE_SECRET_KEY` queda reservado a scripts de importacion y no se envia al cliente.
+
+## Candidatos omitidos
+
+Para registrar los 68 archivos omitidos como candidatos, sin subirlos ni crear objetos en R2:
+
+```bash
+npm run db:india:omitted:dry-run
+npm run db:india:omitted:import
+```
+
+El registro usa un hash estable del identificador editorial, no guarda rutas absolutas y deja cada candidato en `pending`. La web publica solo incluye medios `selected`.
+
 ## Runtime
 
 Mantén `TRAVEL_DATA_SOURCE=local` para el piloto y cambia temporalmente a `supabase` solo durante una validación remota. En Vercel, activa Supabase únicamente después de verificar los datos y deja `TRAVEL_DATA_FALLBACK` sin configurar en producción para no ocultar fallos de persistencia.

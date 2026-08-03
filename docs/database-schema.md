@@ -1,39 +1,42 @@
 # Esquema de base de datos
 
-La migración inicial está en `supabase/migrations/20260731_000001_initial_travel_schema.sql`. Está diseñada para el piloto y evita introducir un editor o un sistema de bloques antes de que exista esa necesidad.
+Las migraciones viven en `supabase/migrations/`. La inicial crea el contrato editorial del piloto y `20260803_000002_admin_editor.sql` añade Auth, revision de medios y escritura protegida para el panel.
 
 ## Tablas
 
-- `trips`: identidad estable, slug, título, fechas, resumen, estado `draft|published|archived`, modo de portada y configuración pública `theme`.
-- `trip_days`: nueve jornadas de India, con número, fecha, título, ciudad, fase, resumen y orden.
-- `places`: lugares de un viaje, slug único por viaje, nombre, alias, ciudad, zona, fecha de visita, descripción, coordenadas, categoría y orden.
-- `trip_day_places`: relación ordenada entre una jornada y sus lugares.
-- `media`: fotos y vídeos, claves públicas, dimensiones, orientación, texto alternativo, encuadre, fecha/hora y metadatos seguros.
-- `media_assignments`: relación ordenada de un medio con una jornada o lugar. Los roles iniciales son `day_hero`, `day_mosaic`, `day_gallery`, `day_video`, `place`, `place_cover` y `closing`.
-- `hero_sets`: variantes de portada por viaje, con modo, orden y activación.
+- `trips`: identidad estable, slug, titulo, fechas, resumen, estado `draft|published|archived`, modo de portada y configuracion publica `theme`.
+- `trip_days`: jornadas, con numero, fecha, titulo, ciudad, fase, resumen y orden.
+- `places`: lugares de un viaje, slug unico, nombre, alias, ciudad, zona, fecha de visita, descripcion, coordenadas y orden.
+- `trip_day_places`: relacion ordenada entre una jornada y sus lugares.
+- `media`: fotos y videos, claves publicas, dimensiones, orientacion, texto alternativo, encuadre, fecha/hora y metadatos seguros.
+- `media_assignments`: relacion ordenada de un medio con una jornada o lugar. Los roles son `day_hero`, `day_mosaic`, `day_gallery`, `day_video`, `place`, `place_cover` y `closing`.
+- `hero_sets`: variantes de portada por viaje, con modo, orden y activacion.
 - `hero_set_media`: medios y slots de cada variante.
-- `nfc_links`: código estable, viaje de destino y estado activo.
+- `admin_users`: lista minima de UUIDs de Auth autorizados para editar contenido.
+- `nfc_links`: codigo estable, viaje de destino y estado activo. NFC sigue desactivado para India.
+
+## Revision de medios
+
+`media.review_status` usa `pending|selected|rejected`. Los 46 medios actuales se mantienen como `selected`; el importador de omitidos registra los 68 candidatos como `pending`, sin subirlos a R2 ni guardarlos con rutas locales. `exclusion_reason` explica el estado y `source_path_hash` distingue candidatos repetidos sin conservar una ruta absoluta.
+
+La web publica solo lee medios `selected`. Un medio puede tener varias filas en `media_assignments` y no se duplica el registro original.
 
 ## Relaciones y borrado
 
-Un viaje es el propietario de jornadas, lugares, medios, asignaciones, portadas y enlaces NFC. Las claves foráneas usan `on delete cascade` para evitar filas huérfanas cuando se elimina un viaje desde una operación administrativa futura. Los scripts de este piloto no ejecutan eliminaciones: solo hacen upsert por IDs deterministas.
-
-Hay índices para slug, viaje y orden, búsquedas de jornadas/lugares, asignaciones por jornada o lugar y enlaces NFC activos. Las restricciones comprueban fechas, órdenes no negativos, coordenadas, dimensiones, ratios y orientaciones.
-
-`media_assignments.trip_id` duplica el viaje propietario de la relación para facilitar lectura por viaje y RLS. `places.zone` y `places.visit_date` son campos explícitos porque la ficha pública actual los necesita.
+Un viaje es el propietario de jornadas, lugares, medios, asignaciones, portadas y enlaces NFC. Las claves foraneas usan `on delete cascade`. El panel no elimina objetos fisicos de R2; descartar un medio solo cambia su estado y retira sus asignaciones.
 
 ## RLS
 
-Todas las tablas tienen RLS activado. `anon` y `authenticated` solo tienen `SELECT`:
+Todas las tablas tienen RLS activado:
 
-- `trips` permite viajes con `status = 'published'`.
-- Las tablas relacionadas comprueban que su `trip_id` pertenezca a un viaje publicado.
-- `trip_day_places` comprueba la jornada relacionada.
-- `hero_set_media` comprueba la portada relacionada.
-- `nfc_links` exige `is_active` y viaje publicado.
+- `anon` y `authenticated` leen solo viajes publicados y sus relaciones publicables.
+- Los medios publicos exigen `review_status = 'selected'`.
+- `public.is_admin_user()` comprueba la sesion autenticada contra `admin_users`.
+- Solo administradores autenticados tienen `SELECT`, `INSERT`, `UPDATE` y `DELETE` editoriales.
+- La clave secreta de servicio se limita a scripts y nunca llega al navegador.
 
-No hay `INSERT`, `UPDATE` ni `DELETE` para roles públicos. La clave secreta de servicio se limita a scripts locales u operaciones protegidas y no debe llegar al navegador.
+Las escrituras del panel usan Server Actions con cookies de Supabase Auth y revalidan las rutas publicas despues de guardar.
 
-## Cambios futuros
+## Pendiente
 
-Auth añadirá políticas de edición para usuarios administradores cuando exista el panel real. R2 sustituirá las claves de medios locales sin cambiar la relación editorial. No se añade una tabla de bloques hasta que el editor tenga un contrato de bloques que implementar.
+La subida directa a R2, la transcodificacion y la eliminacion fisica de objetos quedan fuera de esta primera version. NFC tambien permanece desactivado.

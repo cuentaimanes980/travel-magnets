@@ -154,8 +154,9 @@ async function loadTrip(client: ReturnType<typeof createSupabasePublicClient>, t
   const assignments = (assignmentsResult.data ?? []) as Row[];
   const heroSets = (heroSetsResult.data ?? []) as Row[];
   const heroSetMedia = (heroSetMediaResult.data ?? []) as Row[];
-  const mediaById = new Map(mediaRows.map((row) => [text(row.id), toMedia(row)]));
-  const mediaDisplayOrder = new Map(mediaRows.map((row) => [text(row.id), number(object(row.metadata).display_order) ?? Number.MAX_SAFE_INTEGER]));
+  const visibleMediaRows = mediaRows.filter((row) => text(row.review_status, "selected") === "selected");
+  const mediaById = new Map(visibleMediaRows.map((row) => [text(row.id), toMedia(row)]));
+  const mediaDisplayOrder = new Map(visibleMediaRows.map((row) => [text(row.id), number(object(row.metadata).display_order) ?? Number.MAX_SAFE_INTEGER]));
   const places = placesRows.map((row) => toTripPlace(row, assignments, mediaById));
   const placesById = new Map(places.map((place) => [place.id, place]));
   const days = sorted(daysRows).map((dayRow) => {
@@ -192,7 +193,7 @@ async function loadTrip(client: ReturnType<typeof createSupabasePublicClient>, t
   const defaultCover = coverVariants.a ?? Object.values(coverVariants)[0] ?? { mode: "collage" as const, media: [], fallback: [...mediaById.values()][0] ?? { id: "missing", src: "", alt: "Portada del viaje", type: "image" as const } };
   const closingTheme = object(theme.closing);
   const closingMediaLocalId = text(closingTheme.localMediaId);
-  const closingMedia = mediaRows.find((row) => text(object(row.metadata).local_id) === closingMediaLocalId);
+  const closingMedia = visibleMediaRows.find((row) => text(object(row.metadata).local_id) === closingMediaLocalId);
   const closingMediaItem = closingMedia ? mediaById.get(text(closingMedia.id)) : [...mediaById.values()][mediaById.size - 1];
   const trip: Trip = {
     slug: text(tripRow.slug),
@@ -243,7 +244,8 @@ export async function getSupabasePlacePage(slug: string): Promise<PlacePageData 
   const tripPlaces = (placesResult.data ?? []) as Row[];
   const assignments = (assignmentsResult.data ?? []) as Row[];
   const mediaRows = (mediaResult.data ?? []) as Row[];
-  const mediaById = new Map(mediaRows.map((row) => [text(row.id), toMedia(row)]));
+  const visibleMediaRows = mediaRows.filter((row) => text(row.review_status, "selected") === "selected");
+  const mediaById = new Map(visibleMediaRows.map((row) => [text(row.id), toMedia(row)]));
   const placeAssignments = assignments.filter((assignment) => assignment.place_id === placeRow.id);
   const fullPlace = toTripPlace(placeRow, placeAssignments, mediaById);
   const fullPlaces = tripPlaces.map((row) => toTripPlace(row, assignments, mediaById));

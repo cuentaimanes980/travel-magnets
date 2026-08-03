@@ -10,6 +10,8 @@
     "db:india:import": "tsx scripts/import-india-to-supabase.ts",
     "db:india:verify": "tsx scripts/verify-india-supabase.ts",
     "db:india:compare": "tsx scripts/compare-india-data.ts",
+    "db:india:omitted:dry-run": "tsx scripts/import-india-omitted-media.ts --dry-run",
+    "db:india:omitted:import": "tsx scripts/import-india-omitted-media.ts",
     "import:india": "tsx scripts/import-india-media.ts",
     "media:india:dry-run": "tsx scripts/media-india.ts dry-run",
     "media:india:upload": "tsx scripts/media-india.ts upload",
@@ -19,6 +21,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1100.0",
+    "@supabase/ssr": "^0.12.4",
     "@supabase/supabase-js": "^2.111.0",
     "next": "16.2.12",
     "react": "19.2.4",

@@ -24,6 +24,10 @@ function assignmentId(key: string) {
   return stableId(`assignment:${key}`);
 }
 
+export function mediaSourcePathHash(localId: string) {
+  return createHash("sha256").update(`travel-magnets:${localId}`).digest("hex");
+}
+
 function mediaRow(id: string, item: MediaItem, index: number) {
   return {
     id,
@@ -31,6 +35,8 @@ function mediaRow(id: string, item: MediaItem, index: number) {
     storage_key: item.src,
     thumbnail_key: item.thumbnailSrc ?? null,
     poster_key: item.poster ?? null,
+    source_path_hash: mediaSourcePathHash(item.id),
+    review_status: "selected",
     media_type: item.type,
     width: item.width ?? null,
     height: item.height ?? null,
