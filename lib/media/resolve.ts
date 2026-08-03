@@ -24,11 +24,6 @@ function normalizedKey(value: string) {
   return parts.join("/");
 }
 
-function localFallback(key: string) {
-  const filename = key.split("/").pop();
-  return filename && /^[A-Za-z0-9._-]+$/.test(filename) ? `${LOCAL_MEDIA_ROOT}${filename}` : undefined;
-}
-
 function r2KeyForLocal(key: string, role: MediaKeyRole) {
   const filename = key.split("/").pop();
   if (!filename || !/^[A-Za-z0-9._-]+$/.test(filename)) return undefined;
@@ -47,9 +42,8 @@ export function resolveMediaUrl(storageKey: unknown, role: MediaKeyRole = "full"
   const baseUrl = process.env.NEXT_PUBLIC_MEDIA_BASE_URL?.trim();
   if (process.env.TRAVEL_MEDIA_SOURCE === "r2" && baseUrl && validPublicBaseUrl(baseUrl)) {
     const remoteKey = isLocalKey ? r2KeyForLocal(key, role) : key;
-    return remoteKey ? `${cleanBaseUrl(baseUrl)}/${remoteKey}` : undefined;
+    return remoteKey && (isLocalKey || remoteKey.startsWith("trips/")) ? `${cleanBaseUrl(baseUrl)}/${remoteKey}` : undefined;
   }
   if (isLocalKey) return `/${key}`;
-  if (key.startsWith("demo/")) return undefined;
-  return localFallback(key);
+  return undefined;
 }

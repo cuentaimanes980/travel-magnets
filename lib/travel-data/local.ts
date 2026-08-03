@@ -10,7 +10,8 @@ export function getLocalPlaceSlugs() {
   return indiaPlaces.map((place) => place.slug);
 }
 
-export function getLocalPlacePage(slug: string): PlacePageData | undefined {
+export function getLocalPlacePage(slug: string, tripSlug = "india"): PlacePageData | undefined {
+  if (tripSlug !== indiaTrip.slug) return undefined;
   const place = getIndiaPlace(slug);
   if (!place) return undefined;
   const index = indiaPlaces.findIndex((candidate) => candidate.id === place.id);

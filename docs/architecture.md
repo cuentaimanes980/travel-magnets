@@ -18,14 +18,14 @@ Supabase PostgreSQL contiene viajes, jornadas, lugares, relaciones de jornada, m
 
 RLS está activado en todas las tablas. Los roles públicos solo pueden leer filas vinculadas a un viaje con estado `published`; los enlaces NFC además deben estar activos. No existen políticas públicas de escritura. `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` puede usarse en lecturas protegidas por RLS. `SUPABASE_SECRET_KEY` solo aparece en scripts operativos de servidor y nunca se envía al navegador.
 
-No hay Auth ni panel de edición conectado todavía. La estrategia futura será proteger las operaciones editoriales con Supabase Auth y roles de administración antes de añadir políticas de escritura.
+El panel de edición usa Supabase Auth, cookies SSR y la lista `admin_users`. Las escrituras pasan por Server Actions o rutas servidor y RLS vuelve a comprobar la pertenencia administrativa.
 
 ## Medios y NFC
 
-Los derivados locales de India siguen en `public/demo/india/real/imported`. Supabase guarda sus claves públicas como metadatos de medios, pero no almacena los archivos. Supabase Storage y Cloudflare R2 quedan para una fase posterior.
+Los medios públicos seleccionados de India se sirven desde Cloudflare R2 mediante claves relativas guardadas en Supabase. Los derivados locales siguen en `public/demo/india/real/imported` como fallback. Las credenciales de R2 solo se usan en servidor; la subida directa usa URLs presignadas y el navegador envía los bytes directamente al bucket.
 
 `/n/[code]` usa el mismo repositorio: en local reconoce `india-2018`; en Supabase solo resuelve enlaces activos a viajes publicados. No se programa ningún tag físico en esta fase.
 
 ## Límites actuales
 
-No se incluyen edición, borradores desde la UI, autenticación, subidas, URLs firmadas, procesamiento de vídeo, analítica ni pagos. El seed es idempotente y no ejecuta borrados, pero la aplicación remota debe validarse con credenciales reales antes de cambiar la fuente de producción.
+El panel no elimina objetos físicos de R2, no transcodifica vídeo en Vercel y no activa automáticamente enlaces NFC. El seed y la recuperación de candidatos son idempotentes y no ejecutan borrados de datos remotos.

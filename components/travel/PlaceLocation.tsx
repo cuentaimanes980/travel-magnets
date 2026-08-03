@@ -3,7 +3,7 @@ import type { TripPlace } from "@/types/travel";
 export function PlaceLocation({ place }: { place: TripPlace }) {
   const mapHref = place.coordinates
     ? `https://www.openstreetmap.org/?mlat=${place.coordinates.latitude}&mlon=${place.coordinates.longitude}#map=16/${place.coordinates.latitude}/${place.coordinates.longitude}`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.mapQuery ?? `${place.name}, ${place.city}, India`)}`;
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.mapQuery ?? [place.name, place.city].filter(Boolean).join(", "))}`;
   return <section className="place-location" aria-label={`Ubicación de ${place.name}`}>
     <span className="section-label">Ubicación</span>
     <strong>{place.zone}</strong>

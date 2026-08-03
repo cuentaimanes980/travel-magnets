@@ -1,4 +1,5 @@
 import { createSupabasePublicClient } from "@/lib/supabase/client";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { resolveMediaUrl } from "@/lib/media/resolve";
 import type { CoverVariant, MediaItem, Place, Trip, TripCover, TripDay, TripPlace } from "@/types/travel";
 import type { NfcResolution, PlacePageData } from "@/lib/travel-data/types";
@@ -75,7 +76,7 @@ function toTripPlace(row: Row, placeAssignments: Row[], mediaById: Map<string, M
     description: text(row.description),
     coordinates: latitude !== undefined && longitude !== undefined ? { latitude, longitude } : undefined,
     locationSource: latitude !== undefined && longitude !== undefined ? `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=17/${latitude}/${longitude}` : undefined,
-    mapQuery: `${text(row.name)}, ${text(row.city)}, India`,
+    mapQuery: [text(row.name), text(row.city)].filter(Boolean).join(", "),
     verification: "high",
     mediaIds: mediaIds.filter((id) => mediaById.has(id)),
     coverMediaIds: coverMediaIds.filter((id) => mediaById.has(id)),
@@ -134,7 +135,7 @@ function coverFromHeroSet(heroSet: Row | undefined, heroSetMedia: Row[], mediaBy
   };
 }
 
-async function loadTrip(client: ReturnType<typeof createSupabasePublicClient>, tripRow: Row): Promise<Trip> {
+export async function loadSupabaseTrip(client: SupabaseClient, tripRow: Row): Promise<Trip> {
   const tripId = text(tripRow.id);
   const [daysResult, placesResult, joinsResult, mediaResult, assignmentsResult, heroSetsResult, heroSetMediaResult] = await Promise.all([
     client.from("trip_days").select("*").eq("trip_id", tripId).order("display_order"),
@@ -178,7 +179,7 @@ async function loadTrip(client: ReturnType<typeof createSupabasePublicClient>, t
       phase: text(dayRow.phase),
       confidence: "high" as const,
       placeCandidates: dayPlaces.map((place) => ({ name: place.name, confidence: "high" as const, reason: place.shortSummary })),
-      location: { name: text(dayRow.location), region: "India", status: "confirmed" as const, confidence: "high" as const },
+      location: { name: text(dayRow.location), region: text(object(tripRow.theme).country), status: "confirmed" as const, confidence: "high" as const },
       factualDescription: text(dayRow.summary),
       placesVisited,
       heroImage: heroImage ?? { id: "missing", src: "", alt: "Imagen de la jornada", type: "image" as const },
@@ -190,7 +191,10 @@ async function loadTrip(client: ReturnType<typeof createSupabasePublicClient>, t
 
   const theme = object(tripRow.theme);
   const coverVariants = Object.fromEntries(heroSets.map((set) => [text(set.name).toLowerCase(), coverFromHeroSet(set, heroSetMedia, mediaById)]).filter((entry): entry is [string, TripCover] => Boolean(entry[1]))) as Partial<Record<CoverVariant, TripCover>>;
-  const defaultCover = coverVariants.a ?? Object.values(coverVariants)[0] ?? { mode: "collage" as const, media: [], fallback: [...mediaById.values()][0] ?? { id: "missing", src: "", alt: "Portada del viaje", type: "image" as const } };
+  const activeHeroSet = heroSets.find((set) => Boolean(set.is_active));
+  const activeVariant = text(activeHeroSet?.name).toLowerCase();
+  const activeCover = activeVariant === "a" || activeVariant === "b" || activeVariant === "c" || activeVariant === "d" ? coverVariants[activeVariant] : undefined;
+  const defaultCover = activeCover ?? coverVariants.a ?? Object.values(coverVariants)[0] ?? { mode: "collage" as const, media: [], fallback: [...mediaById.values()][0] ?? { id: "missing", src: "", alt: "Portada del viaje", type: "image" as const } };
   const closingTheme = object(theme.closing);
   const closingMediaLocalId = text(closingTheme.localMediaId);
   const closingMedia = visibleMediaRows.find((row) => text(object(row.metadata).local_id) === closingMediaLocalId);
@@ -221,12 +225,20 @@ export async function getSupabaseTripBySlug(slug: string) {
   const client = createSupabasePublicClient();
   const result = await client.from("trips").select("*").eq("slug", slug).eq("status", "published").maybeSingle();
   queryError(result.error);
-  return result.data ? loadTrip(client, result.data as Row) : undefined;
+  return result.data ? loadSupabaseTrip(client, result.data as Row) : undefined;
 }
 
-export async function getSupabasePlacePage(slug: string): Promise<PlacePageData | undefined> {
+export async function getSupabaseTripById(client: SupabaseClient, id: string, includeDraft = false) {
+  let query = client.from("trips").select("*").eq("id", id);
+  if (!includeDraft) query = query.eq("status", "published");
+  const result = await query.maybeSingle();
+  queryError(result.error);
+  return result.data ? loadSupabaseTrip(client, result.data as Row) : undefined;
+}
+
+export async function getSupabasePlacePage(slug: string, tripSlug = "india"): Promise<PlacePageData | undefined> {
   const client = createSupabasePublicClient();
-  const placeResult = await client.from("places").select("*, trips!inner(slug, status)").eq("slug", slug).eq("trips.slug", "india").eq("trips.status", "published").maybeSingle();
+  const placeResult = await client.from("places").select("*, trips!inner(slug, status)").eq("slug", slug).eq("trips.slug", tripSlug).eq("trips.status", "published").maybeSingle();
   queryError(placeResult.error);
   if (!placeResult.data) return undefined;
   const placeRow = placeResult.data as Row;
@@ -234,7 +246,7 @@ export async function getSupabasePlacePage(slug: string): Promise<PlacePageData 
   const tripResult = await client.from("trips").select("*").eq("id", tripId).eq("status", "published").maybeSingle();
   queryError(tripResult.error);
   if (!tripResult.data) return undefined;
-  const trip = await loadTrip(client, tripResult.data as Row);
+  const trip = await loadSupabaseTrip(client, tripResult.data as Row);
   const [placesResult, assignmentsResult, mediaResult] = await Promise.all([
     client.from("places").select("*").eq("trip_id", tripId).order("display_order"),
     client.from("media_assignments").select("*").eq("trip_id", tripId),

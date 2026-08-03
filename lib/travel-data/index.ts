@@ -29,10 +29,10 @@ export async function getTripBySlug(slug: string): Promise<Trip | undefined> {
   }
 }
 
-export async function getPlacePage(slug: string): Promise<PlacePageData | undefined> {
-  if (getConfiguredDataSource() === "local") return getLocalPlacePage(slug);
+export async function getPlacePage(slug: string, tripSlug = "india"): Promise<PlacePageData | undefined> {
+  if (getConfiguredDataSource() === "local") return getLocalPlacePage(slug, tripSlug);
   try {
-    return await getSupabasePlacePage(slug);
+    return await getSupabasePlacePage(slug, tripSlug);
   } catch (error) {
     if (!mayFallbackToLocal()) throw error;
     reportSupabaseFallback(error);

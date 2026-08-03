@@ -87,6 +87,7 @@ yarn-error.log*
 *.dng
 
 # operating-system files and local tool output
+/output/playwright/
 Thumbs.db
 ehthumbs.db
 Desktop.ini

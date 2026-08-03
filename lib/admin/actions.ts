@@ -1,118 +1,104 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/admin/auth";
 
 const mediaRoles = new Set(["day_hero", "day_mosaic", "day_gallery", "day_video", "place", "place_cover", "closing"]);
+const categories = new Set(["religious", "memorial", "monument", "palace", "hotel", "activity", "transfer"]);
 
-function text(formData: FormData, name: string) {
-  const value = formData.get(name);
-  return typeof value === "string" ? value.trim() : "";
-}
+function text(formData: FormData, name: string) { const value = formData.get(name); return typeof value === "string" ? value.trim() : ""; }
+function values(formData: FormData, name: string) { return formData.getAll(name).map(String).filter(Boolean); }
+function integer(formData: FormData, name: string, fallback = 0) { const value = Number.parseInt(text(formData, name), 10); return Number.isFinite(value) ? value : fallback; }
+function decimal(formData: FormData, name: string, fallback = 50) { const value = Number.parseFloat(text(formData, name)); return Number.isFinite(value) ? Math.max(0, Math.min(100, value)) : fallback; }
+function jsonObject(value: unknown) { return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {}; }
+function slugify(value: string) { return value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80); }
+function validSlug(value: string) { return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value); }
+function validDate(value: string) { return /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(new Date(`${value}T12:00:00Z`).getTime()); }
+function routeFromText(value: string) { return value.split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map((line) => { const [name, region = ""] = line.split("|"); return { name: name.trim(), region: region.trim() }; }).filter((item) => item.name); }
+function refreshPublic(tripSlug: string) { revalidatePath(`/viajes/${tripSlug}`); revalidatePath(`/viajes/${tripSlug}/lugares/[placeSlug]`, "page"); revalidatePath(`/viajes/${tripSlug}/lugares/[slug]`, "page"); revalidatePath(`/n/[code]`, "page"); }
+async function getTrip(client: Awaited<ReturnType<typeof requireAdmin>>["client"], tripSlug: string) { const result = await client.from("trips").select("*").eq("slug", tripSlug).single(); if (result.error) throw new Error(result.error.message); return result.data; }
+async function getTripId(client: Awaited<ReturnType<typeof requireAdmin>>["client"], tripSlug: string) { return String((await getTrip(client, tripSlug)).id); }
+async function normalizeOrder(client: Awaited<ReturnType<typeof requireAdmin>>["client"], table: "trip_days" | "places", tripId: string, ids: string[]) { for (let index = 0; index < ids.length; index += 1) { const result = await client.from(table).update({ display_order: 1000000 + index }).eq("id", ids[index]).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); } for (let index = 0; index < ids.length; index += 1) { const result = await client.from(table).update({ display_order: index }).eq("id", ids[index]).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); } }
 
-function integer(formData: FormData, name: string, fallback = 0) {
-  const value = Number.parseInt(text(formData, name), 10);
-  return Number.isFinite(value) ? value : fallback;
-}
-
-function decimal(formData: FormData, name: string, fallback = 50) {
-  const value = Number.parseFloat(text(formData, name));
-  return Number.isFinite(value) ? Math.max(0, Math.min(100, value)) : fallback;
-}
-
-function jsonObject(value: unknown) {
-  return value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
-}
-
-function refreshPublic(tripSlug: string) {
-  revalidatePath(`/viajes/${tripSlug}`);
-  revalidatePath(`/viajes/${tripSlug}/lugares/[slug]`, "page");
-}
-
-export async function saveMedia(formData: FormData) {
+export async function createTrip(formData: FormData) {
   const { client } = await requireAdmin();
-  const mediaId = text(formData, "mediaId");
-  const tripSlug = text(formData, "tripSlug") || "india";
-  const tripResult = await client.from("trips").select("id, slug").eq("slug", tripSlug).single();
-  if (tripResult.error) throw new Error(tripResult.error.message);
-  const tripId = String(tripResult.data.id);
-  const current = await client.from("media").select("metadata").eq("id", mediaId).eq("trip_id", tripId).single();
+  const title = text(formData, "title");
+  const slug = slugify(text(formData, "slug") || title);
+  const startDate = text(formData, "startDate");
+  const endDate = text(formData, "endDate");
+  if (!title || !validSlug(slug) || !validDate(startDate) || !validDate(endDate) || endDate < startDate) throw new Error("Revisa titulo, slug y fechas.");
+  const existing = await client.from("trips").select("id").eq("slug", slug).maybeSingle();
+  if (existing.error) throw new Error(existing.error.message);
+  if (existing.data) throw new Error("Ese slug ya existe.");
+  const summary = text(formData, "summary");
+  const heroMode = text(formData, "heroMode") === "video" ? "video" : text(formData, "heroMode") === "slideshow" ? "slideshow" : "collage";
+  const insert = await client.from("trips").insert({ slug, title, start_date: startDate, end_date: endDate, summary, status: "draft", hero_mode: heroMode, theme: { intro: summary, route: routeFromText(text(formData, "route")), closing: { title, body: "" }, visualTheme: text(formData, "visualTheme") } }).select("slug").single();
+  if (insert.error) throw new Error(insert.error.message);
+  const hero = await client.from("hero_sets").insert({ trip_id: (await getTrip(client, slug)).id, name: "a", layout: heroMode, display_order: 0, is_active: false });
+  if (hero.error) throw new Error(hero.error.message);
+  redirect(`/admin/viajes/${insert.data.slug}`);
+}
+
+export async function saveTrip(formData: FormData) {
+  const { client } = await requireAdmin();
+  const tripId = text(formData, "tripId");
+  const currentSlug = text(formData, "currentSlug");
+  const nextSlug = slugify(text(formData, "slug"));
+  const title = text(formData, "title");
+  const startDate = text(formData, "startDate");
+  const endDate = text(formData, "endDate");
+  if (!tripId || !title || !validSlug(nextSlug) || !validDate(startDate) || !validDate(endDate) || endDate < startDate) throw new Error("Revisa titulo, slug y fechas.");
+  if (nextSlug !== currentSlug) { const duplicate = await client.from("trips").select("id").eq("slug", nextSlug).neq("id", tripId).maybeSingle(); if (duplicate.error) throw new Error(duplicate.error.message); if (duplicate.data) throw new Error("Ese slug ya existe."); }
+  const current = await client.from("trips").select("theme").eq("id", tripId).single();
   if (current.error) throw new Error(current.error.message);
-  const metadata = jsonObject(current.data.metadata);
-  const reviewStatus = text(formData, "reviewStatus");
-  const nextStatus = reviewStatus === "pending" || reviewStatus === "rejected" ? reviewStatus : "selected";
-  const mediaUpdate = await client.from("media").update({
-    alt: text(formData, "alt"),
-    focus: { x: decimal(formData, "focusX"), y: decimal(formData, "focusY") },
-    review_status: nextStatus,
-    exclusion_reason: text(formData, "exclusionReason") || null,
-    metadata: { ...metadata, admin_description: text(formData, "description") },
-  }).eq("id", mediaId).eq("trip_id", tripId);
-  if (mediaUpdate.error) throw new Error(mediaUpdate.error.message);
-
-  const roles = formData.getAll("role").map(String).filter((role) => mediaRoles.has(role));
-  const dayId = text(formData, "dayId");
-  const placeIds = formData.getAll("placeId").map(String).filter(Boolean);
-  const displayOrder = Math.max(0, integer(formData, "displayOrder"));
-  const removeAssignments = await client.from("media_assignments").delete().eq("media_id", mediaId).eq("trip_id", tripId);
-  if (removeAssignments.error) throw new Error(removeAssignments.error.message);
-  if (nextStatus !== "rejected") {
-    const newAssignments: Record<string, unknown>[] = [];
-    roles.filter((role) => role.startsWith("day_")).forEach((role) => { if (dayId) newAssignments.push({ trip_id: tripId, media_id: mediaId, trip_day_id: dayId, role, display_order: displayOrder }); });
-    roles.filter((role) => role === "place" || role === "place_cover").forEach((role) => placeIds.forEach((placeId) => newAssignments.push({ trip_id: tripId, media_id: mediaId, place_id: placeId, role, display_order: displayOrder })));
-    if (roles.includes("closing")) newAssignments.push({ trip_id: tripId, media_id: mediaId, role: "closing", display_order: displayOrder });
-    if (newAssignments.length) {
-      const insert = await client.from("media_assignments").insert(newAssignments);
-      if (insert.error) throw new Error(insert.error.message);
-    }
-  }
-  refreshPublic(tripSlug);
-  revalidatePath(`/admin/viajes/${tripSlug}/medios`);
+  const theme = jsonObject(current.data.theme);
+  const update = await client.from("trips").update({ slug: nextSlug, title, start_date: startDate, end_date: endDate, summary: text(formData, "summary"), hero_mode: text(formData, "heroMode") === "video" ? "video" : text(formData, "heroMode") === "slideshow" ? "slideshow" : "collage", theme: { ...theme, intro: text(formData, "intro") || text(formData, "summary"), route: routeFromText(text(formData, "route")), visualTheme: text(formData, "visualTheme"), closing: { ...jsonObject(theme.closing), title: text(formData, "closingTitle") || title, body: text(formData, "closingBody") } } }).eq("id", tripId);
+  if (update.error) throw new Error(update.error.message);
+  refreshPublic(currentSlug); refreshPublic(nextSlug); revalidatePath(`/admin/viajes/${nextSlug}`); revalidatePath(`/admin/viajes`);
 }
 
-export async function removeAssignment(formData: FormData) {
-  const { client } = await requireAdmin();
-  const assignmentId = text(formData, "assignmentId");
-  const tripSlug = text(formData, "tripSlug") || "india";
-  const result = await client.from("media_assignments").delete().eq("id", assignmentId);
-  if (result.error) throw new Error(result.error.message);
-  refreshPublic(tripSlug);
-  revalidatePath(`/admin/viajes/${tripSlug}/medios`);
+async function publicationErrors(client: Awaited<ReturnType<typeof requireAdmin>>["client"], tripId: string) {
+  const heroSetRows = await client.from("hero_sets").select("id").eq("trip_id", tripId);
+  if (heroSetRows.error) throw new Error(heroSetRows.error.message);
+  const [trip, days, media, heroes, heroMedia] = await Promise.all([client.from("trips").select("title, slug, start_date, end_date").eq("id", tripId).single(), client.from("trip_days").select("id").eq("trip_id", tripId), client.from("media").select("id, storage_key, review_status").eq("trip_id", tripId).eq("review_status", "selected"), client.from("hero_sets").select("id, is_active").eq("trip_id", tripId), client.from("hero_set_media").select("media_id").in("hero_set_id", heroSetRows.data?.map((row) => row.id) ?? [])]);
+  [trip, days, media, heroes, heroMedia].forEach((result) => { if (result.error) throw new Error(result.error.message); });
+  const heroMediaIds = [...new Set((heroMedia.data ?? []).map((row) => String(row.media_id)))];
+  const heroMediaRecords = heroMediaIds.length ? await client.from("media").select("id, storage_key, review_status").eq("trip_id", tripId).in("id", heroMediaIds) : { data: [], error: null };
+  if (heroMediaRecords.error) throw new Error(heroMediaRecords.error.message);
+  if (!trip.data) throw new Error("Viaje no encontrado.");
+  const errors: string[] = [];
+  if (!trip.data.title || !validSlug(String(trip.data.slug)) || !validDate(String(trip.data.start_date)) || !validDate(String(trip.data.end_date))) errors.push("Faltan datos generales validos.");
+  if (!days.data?.length) errors.push("Crea al menos una jornada.");
+  if (!heroes.data?.some((hero) => hero.is_active)) errors.push("Activa una portada.");
+  if (!heroMediaRecords.data?.length || heroMediaRecords.data.length !== heroMediaIds.length || heroMediaRecords.data.some((item) => item.review_status !== "selected" || !item.storage_key)) errors.push("Asigna medios seleccionados y disponibles a una portada.");
+  if (media.data?.some((item) => !item.storage_key)) errors.push("Hay medios sin clave de almacenamiento.");
+  return errors;
 }
 
-export async function saveDay(formData: FormData) {
-  const { client } = await requireAdmin();
-  const tripSlug = text(formData, "tripSlug") || "india";
-  const dayId = text(formData, "dayId");
-  const result = await client.from("trip_days").update({ date: text(formData, "date"), title: text(formData, "title"), location: text(formData, "location"), phase: text(formData, "phase"), summary: text(formData, "summary") }).eq("id", dayId);
-  if (result.error) throw new Error(result.error.message);
-  refreshPublic(tripSlug);
-  revalidatePath(`/admin/viajes/${tripSlug}/dias`);
-}
+export async function publishTrip(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const errors = await publicationErrors(client, tripId); if (errors.length) redirect(`/admin/viajes/${tripSlug}?error=${encodeURIComponent(errors.join(" "))}`); const result = await client.from("trips").update({ status: "published" }).eq("id", tripId); if (result.error) throw new Error(result.error.message); refreshPublic(tripSlug); revalidatePath("/"); revalidatePath(`/admin/viajes/${tripSlug}`); }
+export async function unpublishTrip(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const result = await client.from("trips").update({ status: "draft" }).eq("slug", tripSlug); if (result.error) throw new Error(result.error.message); refreshPublic(tripSlug); revalidatePath("/"); revalidatePath(`/admin/viajes/${tripSlug}`); }
 
-export async function savePlace(formData: FormData) {
-  const { client } = await requireAdmin();
-  const tripSlug = text(formData, "tripSlug") || "india";
-  const placeId = text(formData, "placeId");
-  const latitude = Number.parseFloat(text(formData, "latitude"));
-  const longitude = Number.parseFloat(text(formData, "longitude"));
-  const result = await client.from("places").update({ name: text(formData, "name"), alternate_name: text(formData, "alternateName") || null, city: text(formData, "city"), zone: text(formData, "zone"), visit_date: text(formData, "visitDate") || null, summary: text(formData, "summary"), description: text(formData, "description"), latitude: Number.isFinite(latitude) ? latitude : null, longitude: Number.isFinite(longitude) ? longitude : null }).eq("id", placeId);
-  if (result.error) throw new Error(result.error.message);
-  refreshPublic(tripSlug);
-  revalidatePath(`/admin/viajes/${tripSlug}/lugares`);
-}
+export async function createDay(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const days = await client.from("trip_days").select("day_number, display_order").eq("trip_id", tripId).order("display_order", { ascending: false }).limit(1); if (days.error) throw new Error(days.error.message); const date = text(formData, "date"); if (!validDate(date)) throw new Error("Fecha no valida."); const dayNumber = numberOrZero(days.data?.[0]?.day_number) + 1; const insert = await client.from("trip_days").insert({ trip_id: tripId, day_number: dayNumber, date, title: text(formData, "title") || `Jornada ${dayNumber}`, location: text(formData, "location"), phase: text(formData, "phase"), summary: text(formData, "summary"), display_order: numberOrZero(days.data?.[0]?.display_order) + 1 }); if (insert.error) throw new Error(insert.error.message); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/dias`); }
+function numberOrZero(value: unknown) { return typeof value === "number" && Number.isFinite(value) ? value : 0; }
+export async function saveDay(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const date = text(formData, "date"); if (!validDate(date)) throw new Error("Fecha no valida."); const result = await client.from("trip_days").update({ date, day_number: Math.max(0, integer(formData, "dayNumber")), title: text(formData, "title"), location: text(formData, "location"), phase: text(formData, "phase"), summary: text(formData, "summary") }).eq("id", text(formData, "dayId")).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/dias`); }
+export async function deleteDay(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const result = await client.from("trip_days").delete().eq("id", text(formData, "dayId")).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); const rows = await client.from("trip_days").select("id").eq("trip_id", tripId).order("display_order"); if (rows.error) throw new Error(rows.error.message); await normalizeOrder(client, "trip_days", tripId, (rows.data ?? []).map((row) => String(row.id))); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/dias`); }
+export async function moveDay(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const rows = await client.from("trip_days").select("id").eq("trip_id", tripId).order("display_order"); if (rows.error) throw new Error(rows.error.message); const ids = (rows.data ?? []).map((row) => String(row.id)); const index = ids.indexOf(text(formData, "dayId")); const next = index + (text(formData, "direction") === "up" ? -1 : 1); if (index >= 0 && next >= 0 && next < ids.length) [ids[index], ids[next]] = [ids[next], ids[index]]; await normalizeOrder(client, "trip_days", tripId, ids); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/dias`); }
 
-export async function activateHeroSet(formData: FormData) {
-  const { client } = await requireAdmin();
-  const tripSlug = text(formData, "tripSlug") || "india";
-  const heroSetId = text(formData, "heroSetId");
-  const trip = await client.from("trips").select("id").eq("slug", tripSlug).single();
-  if (trip.error) throw new Error(trip.error.message);
-  const reset = await client.from("hero_sets").update({ is_active: false }).eq("trip_id", trip.data.id);
-  if (reset.error) throw new Error(reset.error.message);
-  const activate = await client.from("hero_sets").update({ is_active: true }).eq("id", heroSetId).eq("trip_id", trip.data.id);
-  if (activate.error) throw new Error(activate.error.message);
-  refreshPublic(tripSlug);
-  revalidatePath(`/admin/viajes/${tripSlug}/portadas`);
-}
+export async function createPlace(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const name = text(formData, "name"); const slug = slugify(text(formData, "slug") || name); if (!name || !validSlug(slug)) throw new Error("Nombre o slug no valido."); const existing = await client.from("places").select("id").eq("trip_id", tripId).eq("slug", slug).maybeSingle(); if (existing.error) throw new Error(existing.error.message); if (existing.data) throw new Error("Ese slug de lugar ya existe."); const count = await client.from("places").select("id", { count: "exact", head: true }).eq("trip_id", tripId); if (count.error) throw new Error(count.error.message); const result = await client.from("places").insert({ trip_id: tripId, slug, name, alternate_name: text(formData, "alternateName") || null, city: text(formData, "city"), zone: text(formData, "zone"), visit_date: text(formData, "visitDate") || null, summary: text(formData, "summary"), description: text(formData, "description"), category: categories.has(text(formData, "category")) ? text(formData, "category") : "activity", display_order: count.count ?? 0 }).select("id").single(); if (result.error) throw new Error(result.error.message); await savePlaceDays(client, tripId, String(result.data.id), values(formData, "dayId")); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/lugares`); }
+async function savePlaceDays(client: Awaited<ReturnType<typeof requireAdmin>>["client"], tripId: string, placeId: string, dayIds: string[]) { const remove = await client.from("trip_day_places").delete().eq("place_id", placeId); if (remove.error) throw new Error(remove.error.message); if (dayIds.length) { const insert = await client.from("trip_day_places").insert(dayIds.map((dayId, display_order) => ({ trip_day_id: dayId, place_id: placeId, display_order }))); if (insert.error) throw new Error(insert.error.message); } }
+export async function savePlace(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const placeId = text(formData, "placeId"); const slug = slugify(text(formData, "slug")); if (!validSlug(slug)) throw new Error("Slug de lugar no valido."); const latitude = Number.parseFloat(text(formData, "latitude")); const longitude = Number.parseFloat(text(formData, "longitude")); const result = await client.from("places").update({ slug, name: text(formData, "name"), alternate_name: text(formData, "alternateName") || null, city: text(formData, "city"), zone: text(formData, "zone"), visit_date: text(formData, "visitDate") || null, summary: text(formData, "summary"), description: text(formData, "description"), category: categories.has(text(formData, "category")) ? text(formData, "category") : "activity", latitude: Number.isFinite(latitude) ? latitude : null, longitude: Number.isFinite(longitude) ? longitude : null }).eq("id", placeId).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); await savePlaceDays(client, tripId, placeId, values(formData, "dayId")); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/lugares`); }
+export async function deletePlace(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const result = await client.from("places").delete().eq("id", text(formData, "placeId")).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); const rows = await client.from("places").select("id").eq("trip_id", tripId).order("display_order"); if (rows.error) throw new Error(rows.error.message); await normalizeOrder(client, "places", tripId, (rows.data ?? []).map((row) => String(row.id))); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/lugares`); }
+export async function movePlace(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const rows = await client.from("places").select("id").eq("trip_id", tripId).order("display_order"); if (rows.error) throw new Error(rows.error.message); const ids = (rows.data ?? []).map((row) => String(row.id)); const index = ids.indexOf(text(formData, "placeId")); const next = index + (text(formData, "direction") === "up" ? -1 : 1); if (index >= 0 && next >= 0 && next < ids.length) [ids[index], ids[next]] = [ids[next], ids[index]]; await normalizeOrder(client, "places", tripId, ids); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/lugares`); }
 
+export async function saveMedia(formData: FormData) { const { client } = await requireAdmin(); const mediaId = text(formData, "mediaId"); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const current = await client.from("media").select("metadata").eq("id", mediaId).eq("trip_id", tripId).single(); if (current.error) throw new Error(current.error.message); const metadata = jsonObject(current.data.metadata); const reviewStatus = text(formData, "reviewStatus"); const nextStatus = reviewStatus === "pending" || reviewStatus === "rejected" ? reviewStatus : "selected"; const mediaUpdate = await client.from("media").update({ alt: text(formData, "alt"), focus: { x: decimal(formData, "focusX"), y: decimal(formData, "focusY") }, review_status: nextStatus, exclusion_reason: text(formData, "exclusionReason") || null, metadata: { ...metadata, admin_description: text(formData, "description") } }).eq("id", mediaId).eq("trip_id", tripId); if (mediaUpdate.error) throw new Error(mediaUpdate.error.message); await replaceMediaAssignments(client, tripId, mediaId, values(formData, "dayId"), values(formData, "placeId"), values(formData, "role"), integer(formData, "displayOrder")); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/medios`); }
+async function replaceMediaAssignments(client: Awaited<ReturnType<typeof requireAdmin>>["client"], tripId: string, mediaId: string, dayIds: string[], placeIds: string[], roles: string[], displayOrder: number) { const remove = await client.from("media_assignments").delete().eq("media_id", mediaId).eq("trip_id", tripId); if (remove.error) throw new Error(remove.error.message); const validRoles = roles.filter((role) => mediaRoles.has(role)); const rows: Record<string, unknown>[] = []; validRoles.filter((role) => role.startsWith("day_")).forEach((role) => { dayIds.forEach((dayId) => rows.push({ trip_id: tripId, media_id: mediaId, trip_day_id: dayId, role, display_order: Math.max(0, displayOrder) })); }); validRoles.filter((role) => role === "place" || role === "place_cover").forEach((role) => placeIds.forEach((placeId) => rows.push({ trip_id: tripId, media_id: mediaId, place_id: placeId, role, display_order: Math.max(0, displayOrder) }))); if (validRoles.includes("closing")) rows.push({ trip_id: tripId, media_id: mediaId, role: "closing", display_order: Math.max(0, displayOrder) }); if (rows.length) { const insert = await client.from("media_assignments").insert(rows); if (insert.error) throw new Error(insert.error.message); } }
+export async function bulkUpdateMedia(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const mediaIds = values(formData, "mediaId"); const nextStatus = text(formData, "reviewStatus"); if (!mediaIds.length || !["pending", "selected", "rejected"].includes(nextStatus)) return; const update = await client.from("media").update({ review_status: nextStatus, exclusion_reason: nextStatus === "rejected" ? text(formData, "exclusionReason") || null : null }).eq("trip_id", tripId).in("id", mediaIds); if (update.error) throw new Error(update.error.message); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/medios`); }
+export async function removeAssignment(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const result = await client.from("media_assignments").delete().eq("id", text(formData, "assignmentId")).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/medios`); }
+
+export async function createHeroSet(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const name = text(formData, "name").toLowerCase(); const layout = ["collage", "slideshow", "video"].includes(text(formData, "layout")) ? text(formData, "layout") : "collage"; if (!/^[a-z0-9][a-z0-9_-]{0,30}$/.test(name)) throw new Error("Nombre de portada no valido."); const last = await client.from("hero_sets").select("display_order").eq("trip_id", tripId).order("display_order", { ascending: false }).limit(1); if (last.error) throw new Error(last.error.message); const result = await client.from("hero_sets").insert({ trip_id: tripId, name, layout, display_order: numberOrZero(last.data?.[0]?.display_order) + 1, is_active: false }); if (result.error) throw new Error(result.error.message); revalidatePath(`/admin/viajes/${tripSlug}/portadas`); }
+export async function saveHeroSet(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const heroSetId = text(formData, "heroSetId"); const name = text(formData, "name").toLowerCase(); const layout = ["collage", "slideshow", "video"].includes(text(formData, "layout")) ? text(formData, "layout") : "collage"; if (!/^[a-z0-9][a-z0-9_-]{0,30}$/.test(name)) throw new Error("Nombre de portada no valido."); const update = await client.from("hero_sets").update({ name, layout }).eq("id", heroSetId).eq("trip_id", tripId); if (update.error) throw new Error(update.error.message); const remove = await client.from("hero_set_media").delete().eq("hero_set_id", heroSetId); if (remove.error) throw new Error(remove.error.message); const mediaIds = values(formData, "mediaId"); if (mediaIds.length) { const existing = await client.from("media").select("id").eq("trip_id", tripId).in("id", mediaIds); if (existing.error) throw new Error(existing.error.message); const rows = (existing.data ?? []).map((row, slot) => ({ hero_set_id: heroSetId, media_id: row.id, slot, display_order: slot, focus: { x: decimal(formData, `focusX_${row.id}`), y: decimal(formData, `focusY_${row.id}`) } })); const insert = await client.from("hero_set_media").insert(rows); if (insert.error) throw new Error(insert.error.message); } refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/portadas`); }
+export async function activateHeroSet(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const reset = await client.from("hero_sets").update({ is_active: false }).eq("trip_id", tripId); if (reset.error) throw new Error(reset.error.message); const activate = await client.from("hero_sets").update({ is_active: true }).eq("id", text(formData, "heroSetId")).eq("trip_id", tripId); if (activate.error) throw new Error(activate.error.message); refreshPublic(tripSlug); revalidatePath(`/admin/viajes/${tripSlug}/portadas`); }
+
+export async function saveNfcLink(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const code = text(formData, "code").toLowerCase(); const active = text(formData, "isActive") === "true"; if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(code)) throw new Error("El codigo NFC solo admite letras, numeros y guiones."); const trip = await client.from("trips").select("status").eq("id", tripId).single(); if (trip.error) throw new Error(trip.error.message); if (active && trip.data.status !== "published") throw new Error("Publica el viaje antes de activar su codigo NFC."); if (active) { const reset = await client.from("nfc_links").update({ is_active: false }).eq("trip_id", tripId); if (reset.error) throw new Error(reset.error.message); } const linkId = text(formData, "nfcId"); const result = linkId ? await client.from("nfc_links").update({ code, is_active: active }).eq("id", linkId).eq("trip_id", tripId) : await client.from("nfc_links").insert({ trip_id: tripId, code, is_active: active }); if (result.error) throw new Error(result.error.message); revalidatePath(`/admin/viajes/${tripSlug}`); revalidatePath(`/admin/viajes/${tripSlug}/nfc`); revalidatePath(`/n/[code]`, "page"); }
+export async function deleteNfcLink(formData: FormData) { const { client } = await requireAdmin(); const tripSlug = text(formData, "tripSlug"); const tripId = await getTripId(client, tripSlug); const result = await client.from("nfc_links").delete().eq("id", text(formData, "nfcId")).eq("trip_id", tripId); if (result.error) throw new Error(result.error.message); revalidatePath(`/admin/viajes/${tripSlug}`); }

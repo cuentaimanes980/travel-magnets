@@ -13,7 +13,7 @@ El seed se genera desde `data/india.ts`, `data/india-places.ts` y el manifest lo
 - Variantes de portada A, B, C y D.
 - `india-2018` como enlace NFC inactivo.
 
-Los medios permanecen en `public/demo/india/real/imported`. El seed guarda sus rutas públicas, pero no sube, mueve, recomprime ni elimina archivos.
+El seed conserva la fuente local y no modifica archivos. La versión publicada usa las claves relativas de los 114 medios seleccionados en Supabase y sirve sus derivados desde Cloudflare R2; `public/demo/india/real/imported` permanece como fallback local.
 
 ## Flujo seguro
 
@@ -34,6 +34,6 @@ Para una base local, `npx supabase db reset` recrea el esquema. En remoto, revis
 
 La fuente local sigue intacta como fallback de desarrollo y comparación. No se elimina ningún TS, JSON ni medio original.
 
-## Activación posterior
+## Estado actual
 
-Después de verificar el contenido, configura `TRAVEL_DATA_SOURCE=supabase` en un entorno de prueba y revisa `/`, `/viajes/india`, fichas, galerías, visor, vídeos, variantes y `/n/india-2018`. Activa el enlace NFC solo cuando el viaje publicado y sus medios estén comprobados.
+La aplicación publicada usa `TRAVEL_DATA_SOURCE=supabase` y `TRAVEL_MEDIA_SOURCE=r2`. India está comprobada en `/`, `/viajes/india`, fichas, galerías, visor, vídeos y variantes A-D. El enlace NFC permanece inactivo hasta una decisión editorial posterior.

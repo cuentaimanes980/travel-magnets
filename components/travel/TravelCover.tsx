@@ -8,8 +8,8 @@ function CoverImage({ media, priority = false, className = "" }: { media: MediaI
   return <Image className={className} src={media.src} alt={media.alt} fill priority={priority} unoptimized sizes="100vw" style={{ objectFit: "cover", objectPosition: media.focus ? `${media.focus.x}% ${media.focus.y}%` : "50% 50%" }} />;
 }
 
-function CoverFallback({ media }: { media: MediaItem }) {
-  return <div className="cover-fallback"><CoverImage media={media} priority /><span>India · álbum de viaje</span></div>;
+function CoverFallback({ media, title }: { media: MediaItem; title: string }) {
+  return <div className="cover-fallback"><CoverImage media={media} priority /><span>{title} · álbum de viaje</span></div>;
 }
 
 function VariantCover({ cover }: { cover: TripCover }) {
@@ -55,8 +55,8 @@ function SlideshowCover({ cover }: { cover: TripCover }) {
   return <div className="cover-slideshow"><CoverImage media={media[activeIndex]} priority /><span className="cover-count">{String(activeIndex + 1).padStart(2, "0")} / {String(media.length).padStart(2, "0")}</span></div>;
 }
 
-function VideoCover({ cover }: { cover: TripCover }) {
-  if (!cover.video) return <CoverFallback media={cover.fallback} />;
+function VideoCover({ cover, title }: { cover: TripCover; title: string }) {
+  if (!cover.video) return <CoverFallback media={cover.fallback} title={title} />;
   return <div className="cover-video"><video autoPlay muted loop playsInline poster={cover.video.poster ?? cover.fallback.src} aria-label="Vídeo de portada"><source src={cover.video.src} type="video/mp4" /></video></div>;
 }
 
@@ -75,7 +75,7 @@ export function TravelCover({ title, dates, cover, variantOptions = [], randomiz
   const selectedCover = randomize ? randomCover ?? cover : cover;
 
   return <section className="travel-cover" data-cover-variant={selectedCover.variant ?? "legacy"} aria-label={`Portada del álbum ${title}`}>
-    <div className="cover-media">{selectedCover.variant && <VariantCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "collage" && <CollageCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "slideshow" && <SlideshowCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "video" && <VideoCover cover={selectedCover} />}</div>
+    <div className="cover-media">{selectedCover.variant && <VariantCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "collage" && <CollageCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "slideshow" && <SlideshowCover cover={selectedCover} />}{!selectedCover.variant && selectedCover.mode === "video" && <VideoCover cover={selectedCover} title={title} />}</div>
     <div className="cover-shade" />
     <div className="cover-copy"><h1>{title}</h1><p>{dates}</p></div>
     <a className="cover-scroll" href="#resumen">Continuar <span aria-hidden="true">↓</span></a>

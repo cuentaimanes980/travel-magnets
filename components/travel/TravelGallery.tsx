@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import type { MediaItem } from "@/types/travel";
 
-type FilterKey = "all" | "Delhi" | "Jaipur" | "Agra" | "travel" | "video";
+type FilterKey = string;
 type GalleryFilter = { key: FilterKey; label: string };
 
 function matchesFilter(item: MediaItem, filter: FilterKey) {
